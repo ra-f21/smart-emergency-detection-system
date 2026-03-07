@@ -1,6 +1,13 @@
 {% extends "base.html" %}
 {% block content %}
 <h2>Dashboard</h2>
-<p>Welcome, {{ user.full_name }} ✅</p>
+
+<p><strong>Welcome:</strong> {{ user.full_name }}</p>
+<p><strong>Email:</strong> {{ user.email }}</p>
+<p><strong>Age:</strong> {{ user.age }}</p>
+<p><strong>Diseases:</strong> {{ user.diseases }}</p>
+<p><strong>Number of Residents:</strong> {{ user.number_of_residents }}</p>
+<p><strong>Location:</strong> {{ user.location }}</p>
+
 <p><a href="{{ url_for('logout') }}">Logout</a></p>
 {% endblock %}

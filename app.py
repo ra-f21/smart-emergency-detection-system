@@ -13,24 +13,21 @@ login_manager = LoginManager(app)
 login_manager.login_view = "login"
 
 
-# =======================
-# Database Model
-# =======================
 class User(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
     full_name = db.Column(db.String(120), nullable=False)
     email = db.Column(db.String(120), unique=True, nullable=False)
     password = db.Column(db.String(200), nullable=False)
+    age = db.Column(db.Integer, nullable=False)
+    diseases = db.Column(db.String(300), nullable=True)
+    number_of_residents = db.Column(db.Integer, nullable=False)
+    location = db.Column(db.String(200), nullable=False)
 
 
 @login_manager.user_loader
 def load_user(user_id):
-    return User.query.get(int(user_id))
+    return db.session.get(User, int(user_id))
 
-
-# =======================
-# Routes
-# =======================
 
 @app.route("/")
 def home():
@@ -43,11 +40,23 @@ def register():
         full_name = request.form["full_name"]
         email = request.form["email"]
         password = request.form["password"]
+        age = int(request.form["age"])
+        diseases = request.form["diseases"]
+        number_of_residents = int(request.form["number_of_residents"])
+        location = request.form["location"]
 
         if User.query.filter_by(email=email).first():
             return "Email already exists!"
 
-        user = User(full_name=full_name, email=email, password=password)
+        user = User(
+            full_name=full_name,
+            email=email,
+            password=password,
+            age=age,
+            diseases=diseases,
+            number_of_residents=number_of_residents,
+            location=location
+        )
         db.session.add(user)
         db.session.commit()
         return redirect(url_for("login"))
@@ -84,10 +93,8 @@ def logout():
     return redirect(url_for("home"))
 
 
-# =======================
-# Run App
-# =======================
 if __name__ == "__main__":
     with app.app_context():
+        db.drop_all()
         db.create_all()
     app.run(debug=True)
