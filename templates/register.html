@@ -1,18 +1,29 @@
-{% extends "base.html" %}
+<html>
+<head>
+    <title>Smart Emergency Detection System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
 {% block content %}
-<h2>Register</h2>
+<div class="Proj-title">
+<h1>Smart Emergency Detection System</h1>
+</div>
+<div class="comment"><h2>Please register the following information correctly</h2></div>
 
+<div class="Register-container">
+  
 <form method="POST">
-  <input name="full_name" placeholder="Full Name" required><br><br>
-  <input name="email" type="email" placeholder="Email" required><br><br>
-  <input name="password" type="password" placeholder="Password" required><br><br>
-  <input name="age" type="number" placeholder="Age" required><br><br>
-  <input name="diseases" placeholder="Diseases (if any)"><br><br>
-  <input name="number_of_residents" type="number" placeholder="Number of Residents" required><br><br>
-  <input name="location" placeholder="Location" required><br><br>
+  <input class="full_name" name="full_name" placeholder="Full Name" required><br><br>
+  <input class="email" name="email" type="email" placeholder="Email" required><br><br>
+  <input class="password" name="password" type="password" placeholder="Password" required><br><br>
+  <input class="age" name="age" type="number" placeholder="Age" required><br><br>
+  <input class="diseases" name="diseases" placeholder="Diseases (if any)"><br><br>
+  <input class= "number_of_residents" name="number_of_residents" type="number" placeholder="Number of Residents" required><br><br>
+  <input class="location" name="location" placeholder="Location" required><br><br>
 
-  <button type="submit">Create Account</button>
+  <button class="sub-btn"type="submit">Create Account</button>
 </form>
-
+<div class="login-comment">
 <p><a href="{{ url_for('login') }}">Already have an account? Login</a></p>
-{% endblock %}
+{% endblock %}</div>
+</div>

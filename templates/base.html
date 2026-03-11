@@ -4,20 +4,52 @@
     <title>Smart Emergency Detection System</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
+
 <body>
 
-    <h1>Smart Emergency Detection System</h1>
-    <hr>
-    <p>
-  <a href="{{ url_for('home') }}">Home</a> |
-  <a href="{{ url_for('register') }}">Register</a> |
-  <a href="{{ url_for('login') }}">Login</a> |
-  <a href="{{ url_for('dashboard') }}">Dashboard</a>
-</p>
-<hr>
+<!-- TOP BAR -->
+<div class="topbar">
+    <button class="menu-btn" onclick="toggleSidebar()">☰</button>
+    <h2 class="logo">Smart Emergency Detection System</h2>
+
+    <div class="top-links">
+        
+        <a href="{{ url_for('logout') }}">Logout</a>
+    </div>
+</div>
 
 
-    {% block content %}{% endblock %}
+<!-- MAIN LAYOUT -->
+<div class="main-container">
 
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+        <a href="{{ url_for('home') }}">Home</a>
+        <a href="{{ url_for('home') }}">System Status</a>
+        <a href="#">Emergency Logs</a>
+        <a href="#">Settings</a>
+        <a href="{{ url_for('dashboard') }}">User Information</a>
+        
+
+    </div>
+
+
+    <!-- PAGE CONTENT -->
+    <div class="content">
+
+        {% block content %}{% endblock %}
+
+    </div>
+
+</div>
+<script>
+function toggleSidebar() {
+
+    const sidebar = document.querySelector(".sidebar");
+
+    sidebar.classList.toggle("collapsed");
+
+}
+</script>
 </body>
 </html>
