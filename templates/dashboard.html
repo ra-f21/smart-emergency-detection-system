@@ -9,5 +9,22 @@
 <p><strong>Number of Residents:</strong> {{ user.number_of_residents }}</p>
 <p><strong>Location:</strong> {{ user.location }}</p>
 
+<hr>
+
+<h2>Latest Emergency</h2>
+
+{% if last_emergency %}
+<div style="background:#ffdddd;padding:15px;border-radius:10px;width:350px;margin:auto;">
+    <p><strong>Type:</strong> {{ last_emergency.emergency_type }}</p>
+    <p><strong>Status:</strong> {{ last_emrgency.status }}</p>
+    <p><strong>Time:</strong> {{ last_emergency.timestamp }}</p>
+</div>
+{% else %}
+<p>No emergencies recorded.</p>
+{% endif %}
+
+<hr>
+
 <p><a href="{{ url_for('logout') }}">Logout</a></p>
+
 {% endblock %}
