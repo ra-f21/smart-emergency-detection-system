@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager, UserMixin, login_user, logout_user, login_required, current_user
+from datetime import datetime
 
 app = Flask(__name__)
 app.config["SECRET_KEY"] = "change-this-later"
@@ -22,6 +23,16 @@ class User(db.Model, UserMixin):
     diseases = db.Column(db.String(300), nullable=True)
     number_of_residents = db.Column(db.Integer, nullable=False)
     location = db.Column(db.String(200), nullable=False)
+
+    emergency_logs = db.relationship("EmergencyLog", backref="user", lazy=True)
+
+
+class EmergencyLog(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    emergency_type = db.Column(db.String(50), nullable=False)
+    status = db.Column(db.String(50), nullable=False, default="Pending")
+    timestamp = db.Column(db.DateTime, default=datetime.utcnow)
+    user_id = db.Column(db.Integer, db.ForeignKey("user.id"), nullable=False)
 
 
 @login_manager.user_loader
@@ -83,7 +94,16 @@ def login():
 @app.route("/dashboard")
 @login_required
 def dashboard():
-    return render_template("dashboard.html", user=current_user)
+
+    last_emergency = EmergencyLog.query.filter_by(
+        user_id=current_user.id
+    ).order_by(EmergencyLog.timestamp.desc()).first()
+
+    return render_template(
+        "dashboard.html",
+        user=current_user,
+        last_emergency=last_emergency
+    )
 
 
 @app.route("/logout")
@@ -93,8 +113,56 @@ def logout():
     return redirect(url_for("home"))
 
 
+@app.route("/emergency-log")
+@login_required
+def emergency_log():
+    logs = EmergencyLog.query.filter_by(user_id=current_user.id).order_by(EmergencyLog.timestamp.desc()).all()
+    return render_template("emergency_log.html", logs=logs)
+
+
+@app.route("/add-test-emergency/<emergency_type>")
+@login_required
+def add_test_emergency(emergency_type):
+    if emergency_type.lower() not in ["fire", "fall"]:
+        return "Invalid emergency type!"
+
+    new_log = EmergencyLog(
+        emergency_type=emergency_type.capitalize(),
+        status="Pending",
+        user_id=current_user.id
+    )
+
+    db.session.add(new_log)
+    db.session.commit()
+
+    return redirect(url_for("emergency_log"))
+
+
+# API يستقبل تنبيه من نموذج الذكاء الاصطناعي
+@app.route("/api/emergency", methods=["POST"])
+def api_emergency():
+
+    data = request.json
+    emergency_type = data.get("type")
+
+    if emergency_type not in ["Fire", "Fall"]:
+        return {"error": "Invalid emergency type"}, 400
+
+    new_log = EmergencyLog(
+        emergency_type=emergency_type,
+        status="Pending",
+        user_id=1
+    )
+
+    db.session.add(new_log)
+    db.session.commit()
+
+    return {"message": "Emergency recorded"}, 200
+
+
 if __name__ == "__main__":
     with app.app_context():
         db.drop_all()
         db.create_all()
+
     app.run(debug=True)
