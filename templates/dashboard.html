@@ -2,16 +2,46 @@
 
 {% block content %}
 
-<h2>User Information</h2>
+<h2>User Profile</h2>
 
-<div class="dashboard-box" >
+<div class="Register-container">
 
-<p><strong>User Name:</strong> {{ user.full_name }}</p>
-<p><strong>User Email:</strong> {{ user.email }}</p>
-<p><strong>User Age:</strong> {{ user.age }}</p>
-<p><strong>User Diseases(If any):</strong> {{ user.diseases }}</p>
-<p><strong>Number of Residents:</strong> {{ user.number_of_residents }}</p>
-<p><strong>User Location:</strong> {{ user.location }}</p>
+<form method="POST">
+
+<label>Full Name</label>
+<input class="full_name"
+       value="{{ user.full_name }}"
+       readonly>
+
+<label>Email</label>
+<input class="email"
+       value="{{ user.email }}"
+       readonly>
+
+<label>Age</label>
+<input class="age"
+       value="{{ user.age }}"
+       readonly>
+
+<label>Diseases (if any)</label>
+<input class="diseases"
+       name="diseases"
+       value="{{ user.diseases or '' }}">
+
+<label>Number of Residents</label>
+<input class="number_of_residents"
+       name="number_of_residents"
+       type="number"
+       value="{{ user.number_of_residents }}">
+
+<label>Location</label>
+<input class="location"
+       name="location"
+       value="{{ user.location }}">
+
+<button class="sub-btn" type="submit">Update Information</button>
+
+</form>
 
 </div>
 

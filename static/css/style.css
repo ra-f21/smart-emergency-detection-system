@@ -1,6 +1,6 @@
 body {
-    background-color: #555555  ; 
-    color: #e6eaf3;             
+    background-color: #e3dac9      ; 
+    color: white;             
     margin: 0;
 }
 .Proj-title{
@@ -95,81 +95,95 @@ body {
     width:100%;
     height:48px;
     border-radius:12px;
-    border:1px solid rgba(255,255,255,0.08);
+    border:1px solid white;
     padding:0 14px;
     margin-bottom:14px;
     background:rgba(255,255,255,0.06);
-    color:#e6eaf3;
+    color:white;
 }
 
 .email{
     width:100%;
     height:48px;
     border-radius:12px;
-    border:1px solid rgba(255,255,255,0.08);
+    border:1px solid white;
     padding:0 14px;
     margin-bottom:14px;
     background:rgba(255,255,255,0.06);
-    color:#e6eaf3;
+    color:white;
 }
 
 .password{
      width:100%;
     height:48px;
     border-radius:12px;
-    border:1px solid rgba(255,255,255,0.08);
+    border:1px solid white;
     padding:0 14px;
     margin-bottom:14px;
     background:rgba(255,255,255,0.06);
-    color:#e6eaf3;
+    color:white;
 }
 
 .age{
      width:100%;
     height:48px;
     border-radius:12px;
-    border:1px solid rgba(255,255,255,0.08);
+    border:1px solid white;
     padding:0 14px;
     margin-bottom:14px;
     background:rgba(255,255,255,0.06);
-    color:#e6eaf3;
+    color:white;
 }
 
 .diseases{
      width:100%;
     height:48px;
     border-radius:12px;
-    border:1px solid rgba(255,255,255,0.08);
+    border:1px solid white;
     padding:0 14px;
     margin-bottom:14px;
-    background:rgba(255,255,255,0.06);
-    color:#e6eaf3;
+    background:#d1bea8;
+    color:white;
 }
 
 .number_of_residents{
      width:100%;
     height:48px;
     border-radius:12px;
-    border:1px solid rgba(255,255,255,0.08);
+    border:1px solid white;
     padding:0 14px;
     margin-bottom:14px;
-    background:rgba(255,255,255,0.06);
-    color:#e6eaf3;
+    background:#d1bea8;
+    color:white;
 }
 
 .location{
      width:100%;
     height:48px;
     border-radius:12px;
-    border:1px solid rgba(255,255,255,0.08);
+    border:1px solid white;
     padding:0 14px;
     margin-bottom:14px;
-    background:rgba(255,255,255,0.06);
-    color:#e6eaf3;
+    background:#d1bea8;
+    color:white;
+}
+
+input[readonly]{
+    background: #d1bea8 ;
+    cursor:not-allowed;
+}
+
+.Register-container label{
+    display:block;
+    margin-bottom:5px;
+    margin-top:10px;
+    color:white;
+    font-weight:500;
+    text-align: left;
 }
 
 .sub-btn{
-     width:400px;
+    width:400px;
     height:48px;
     border:none;
     border-radius:12px;
@@ -190,7 +204,7 @@ body {
 
 .topbar{
     height:60px;   
-    background:#1d2951;
+    background:#b0c4de  ;
     display:flex;
     justify-content:space-between;
     align-items:center;
@@ -214,13 +228,10 @@ body {
 
 .sidebar{
     width:220px;
-    height:100vh;
+    height:800px;
     padding:20px;
     transition:0.3s;
-    border:solid;
-    border-color: #555555;
-    border-radius: 7px;
-    background:#1d2951     ; 
+    background:#b0c4de;
 }
 
 .sidebar h3{
@@ -228,15 +239,28 @@ body {
 }
 
 .sidebar a{
-    font-size: large;
-    display:block;
+    font-size:16px;
+    display:flex;
+    align-items:center;
+    gap:30px;
+    width:100%;
+    box-sizing:border-box;
     color:white;
     text-decoration:none;
-    margin:15px 0;
+    padding:20px 10px;
+    border-bottom:1px solid rgba(255,255,255,0.5);
+    transition:0.2s;
 }
 
 .sidebar a:hover{
+    background:white;
     color:black;
+    transform:translateX(3px);
+}
+
+.sidebar svg{
+    width:18px;
+    height:18px;
 }
 
 .content{
@@ -249,7 +273,7 @@ body {
 .dashboard-box{
     text-align: center;
     margin:auto;
-    background:#1d2951     ;
+    background:#b0c4de      ;
     padding:20px;
     border-radius:8px;
     width:400px;
@@ -258,7 +282,7 @@ body {
 .status-box{
     text-align: center;
     margin:auto;
-    background:#1d2951;
+    background:#b0c4de ;
     padding:20px;
     border-radius:8px;
     width:400px;
