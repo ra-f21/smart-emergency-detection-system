@@ -2,6 +2,9 @@ from flask import Flask, render_template, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager, UserMixin, login_user, logout_user, login_required, current_user
 from datetime import datetime
+from werkzeug.security import generate_password_hash, check_password_hash
+from flask import Response
+from datetime import datetime, date
 
 app = Flask(__name__)
 app.config["SECRET_KEY"] = "change-this-later"
@@ -33,6 +36,7 @@ class EmergencyLog(db.Model):
     status = db.Column(db.String(50), nullable=False, default="Pending")
     timestamp = db.Column(db.DateTime, default=datetime.utcnow)
     user_id = db.Column(db.Integer, db.ForeignKey("user.id"), nullable=False)
+    video_path = db.Column(db.String(300), nullable=True)
 
 
 @login_manager.user_loader
@@ -51,18 +55,39 @@ def register():
         full_name = request.form["full_name"]
         email = request.form["email"]
         password = request.form["password"]
-        age = int(request.form["age"])
-        diseases = request.form["diseases"]
+        hashed_password = generate_password_hash(password)
+        
+        # Get the birthdate from the form
+        birthdate_str = request.form["age"]  # still 'age' in HTML
+        birthdate = datetime.strptime(birthdate_str, "%Y-%m-%d").date()
+        
+        # Calculate age
+        today = date.today()
+        age = today.year - birthdate.year - ((today.month, today.day) < (birthdate.month, birthdate.day))
+        
+        # Handle diseases
+        disease_selected = request.form.get("diseases")
+        disease_other = request.form.get("diseases_other")
+        if disease_selected == "Other":
+            diseases = disease_other
+        else:
+            diseases = disease_selected
+        
+        # Always get these
         number_of_residents = int(request.form["number_of_residents"])
         location = request.form["location"]
 
-        if User.query.filter_by(email=email).first():
-            return "Email already exists!"
+        # Check if email exists
+        existing_user = User.query.filter_by(email=email).first()
+        if existing_user:
+            error_message = "Email already exists. Please use another email."
+            return render_template("register.html", error=error_message)
 
+        # Create new user
         user = User(
             full_name=full_name,
             email=email,
-            password=password,
+            password=hashed_password,
             age=age,
             diseases=diseases,
             number_of_residents=number_of_residents,
@@ -81,15 +106,31 @@ def login():
         email = request.form["email"]
         password = request.form["password"]
 
-        user = User.query.filter_by(email=email, password=password).first()
-        if not user:
-            return "Wrong email or password!"
-
+        user = User.query.filter_by(email=email).first()
+        if not user or not check_password_hash(user.password, password):
+            return render_template("login.html", error="Wrong email or password!")
         login_user(user)
         return redirect(url_for("dashboard"))
 
     return render_template("login.html")
 
+@app.route("/live-stream")
+@login_required
+def live_stream():
+    return render_template("livestream.html")
+
+
+def generate_frames():
+    # WHEN CAMERA IS CONNECTED CHANGE THIS WITH I THE CODE
+    while True:
+        # no camera yet → just break
+        break
+
+@app.route('/video-feed')
+@login_required
+def video_feed():
+    return Response(generate_frames(),
+                    mimetype='multipart/x-mixed-replace; boundary=frame')
 
 @app.route("/dashboard")
 @login_required
@@ -110,7 +151,7 @@ def dashboard():
 @login_required
 def logout():
     logout_user()
-    return redirect(url_for("home"))
+    return redirect(url_for("login"))
 
 
 @app.route("/emergency-log")
@@ -162,7 +203,7 @@ def api_emergency():
 
 if __name__ == "__main__":
     with app.app_context():
-        db.drop_all()
+        #db.drop_all() --------- this line deletes logs and database content
         db.create_all()
 
     app.run(debug=True)

@@ -1,10 +1,10 @@
 body {
-    background-color: #e3dac9      ; 
-    color: white;             
+    background-color: #b0c4de      ; 
+    color: black;             
     margin: 0;
 }
 .Proj-title{
-   color:white;
+   color:black;
    margin-bottom:20px;
    padding-bottom: 20px;
    padding-top: 20px;
@@ -16,7 +16,7 @@ body {
 }
 
 .subtitle{
-    color:white;
+    color:black;
     margin-bottom:20px;
 }
 
@@ -77,11 +77,11 @@ body {
     text-align:center;
     margin-top:16px;
     font-size:13px;
-    color:white;
+    color:black;
 }
 
 .comment{
-    color:white;
+    color:black;
     margin-bottom:20px;
     text-align: center;
 }
@@ -99,7 +99,7 @@ body {
     padding:0 14px;
     margin-bottom:14px;
     background:rgba(255,255,255,0.06);
-    color:white;
+    color:black;
 }
 
 .email{
@@ -110,7 +110,7 @@ body {
     padding:0 14px;
     margin-bottom:14px;
     background:rgba(255,255,255,0.06);
-    color:white;
+    color:black;
 }
 
 .password{
@@ -121,7 +121,7 @@ body {
     padding:0 14px;
     margin-bottom:14px;
     background:rgba(255,255,255,0.06);
-    color:white;
+    color:black;
 }
 
 .age{
@@ -132,7 +132,7 @@ body {
     padding:0 14px;
     margin-bottom:14px;
     background:rgba(255,255,255,0.06);
-    color:white;
+    color:black;
 }
 
 .diseases{
@@ -142,19 +142,31 @@ body {
     border:1px solid white;
     padding:0 14px;
     margin-bottom:14px;
-    background:#d1bea8;
-    color:white;
+    background:rgba(255,255,255,0.06);
+    color:black;
+    
 }
 
 .number_of_residents{
-     width:100%;
+    width:100%;
     height:48px;
     border-radius:12px;
     border:1px solid white;
     padding:0 14px;
     margin-bottom:14px;
-    background:#d1bea8;
-    color:white;
+    background:rgba(255,255,255,0.06);
+    color:black;
+}
+
+.diseases_other{
+    width:100%;
+    height:48px;
+    border-radius:12px;
+    border:1px solid white;
+    padding:0 14px;
+    margin-bottom:14px;
+    background:rgba(255,255,255,0.06);
+    color:black;
 }
 
 .location{
@@ -164,12 +176,12 @@ body {
     border:1px solid white;
     padding:0 14px;
     margin-bottom:14px;
-    background:#d1bea8;
-    color:white;
+    background:rgba(255,255,255,0.06);
+    color:black;
 }
 
 input[readonly]{
-    background: #d1bea8 ;
+    background: rgba(255,255,255,0.06); ;
     cursor:not-allowed;
 }
 
@@ -177,7 +189,7 @@ input[readonly]{
     display:block;
     margin-bottom:5px;
     margin-top:10px;
-    color:white;
+    color:black;
     font-weight:500;
     text-align: left;
 }
@@ -188,7 +200,7 @@ input[readonly]{
     border:none;
     border-radius:12px;
     margin-top:12px;
-    color:white;
+    color:black;
     font-weight:600;
     background:#8b0000;
     padding:0 14px;
@@ -199,7 +211,7 @@ input[readonly]{
     text-align:center;
     margin-top:16px;
     font-size:13px;
-    color:white;
+    color:black;
 }
 
 .topbar{
@@ -213,7 +225,7 @@ input[readonly]{
 
 .top-links a{
     font-size: large;
-    color:white;
+    color:black;
     margin-left:20px;
     text-decoration:none;
 }
@@ -245,7 +257,7 @@ input[readonly]{
     gap:30px;
     width:100%;
     box-sizing:border-box;
-    color:white;
+    color:black;
     text-decoration:none;
     padding:20px 10px;
     border-bottom:1px solid rgba(255,255,255,0.5);
@@ -280,18 +292,19 @@ input[readonly]{
 }
 
 .status-box{
-    text-align: center;
+    text-align: left;
     margin:auto;
     background:#b0c4de ;
     padding:20px;
     border-radius:8px;
-    width:400px;
+    font-size: 25px;
+    font-weight: bold;
 }
 
 .menu-btn{
     background:none;
     border:none;
-    color:white;
+    color:black;
     font-size:22px;
     cursor:pointer;
     margin-right:15px;
@@ -305,4 +318,38 @@ input[readonly]{
 
 .logo{
     margin:0;
+}
+
+.panels-container {
+    display: flex;
+    overflow-x: auto; /* enables horizontal scroll */
+    gap: 20px;
+    padding: 10px;
+}
+
+.panel {
+    min-width: 250px;
+    background: #b0c4de;
+    border-radius: 8px;
+    padding: 10px;
+    text-align: center;
+    flex-shrink: 0; /* prevents shrinking when scrolling */
+}
+
+.panel img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+.panel p {
+    margin-top: 10px;
+    color:black;
+}
+
+.error-message {
+    color: red;
+    font-weight: bold;
+    margin-bottom: 15px;
 }

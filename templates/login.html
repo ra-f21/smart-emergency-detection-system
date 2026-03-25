@@ -12,7 +12,9 @@
 
     <h2>Welcome Back!</h2>
     <p class="subtitle">Please enter your details</p>
-
+{% if error %}
+    <p style="color:red; text-align:center;">{{ error }}</p>
+{% endif %}
     <form method="POST">
 
         <!-- EMAIL -->

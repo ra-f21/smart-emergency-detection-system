@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2>Live Stream</h2>
+
+<div class="status-box">
+
+    <!-- This will work later when camera is connected -->
+    <img src="{{ url_for('video_feed') }}" width="500">
+
+    <!-- Fallback message -->
+    <p>If no video appears, please connect your camera.</p>
+
+</div>
+
+{% endblock %}

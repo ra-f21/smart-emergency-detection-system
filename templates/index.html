@@ -2,13 +2,30 @@
 
 {% block content %}
 
-<h2>System Status</h2>
+
 
 <div class="status-box">
+  <p>"--REPLACE WITH PROJECT NAME--" is a smart emergency detection system that is designed and implemented to
+    be able to catch up emergency situations as fast as possible.
+    This is a system that can detect three emergency situations: health detoriaration, crime detection, and fire detection.
+    In this website you will be able to find the latest updates of our system, your emergency logs, and your profile's information.
+  </p>
+</div>
 
-<p>This page will be working as an about us page, where it will contain Information about the newest updates the system has, what it does and more</p>
-<p></p>
-
+<h3>Highlights & Updates</h3>
+<div class="panels-container">
+    <div class="panel">
+        <img src="{{ url_for('static', filename='images/update1.jpg') }}" alt="Update 1">
+        <p>New AI emergency detection model integrated.</p>
+    </div>
+    <div class="panel">
+        <img src="{{ url_for('static', filename='images/update2.jpg') }}" alt="Update 2">
+        <p>Live video streaming enabled.</p>
+    </div>
+    <div class="panel">
+        <img src="{{ url_for('static', filename='images/update3.jpg') }}" alt="Update 3">
+        <p>User-friendly dashboard improvements.</p>
+    </div>
 </div>
 
 {% endblock %}

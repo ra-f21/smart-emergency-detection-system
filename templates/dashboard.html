@@ -24,9 +24,21 @@
        readonly>
 
 <label>Diseases (if any)</label>
-<input class="diseases"
-       name="diseases"
-       value="{{ user.diseases or '' }}">
+<select id="diseases-select" name="diseases" class="diseases">
+    <option value="" {% if not user.diseases %}selected{% endif %}>None</option>
+    <option value="Diabetes" {% if user.diseases == 'Diabetes' %}selected{% endif %}>Diabetes</option>
+    <option value="Hypertension" {% if user.diseases == 'Hypertension' %}selected{% endif %}>Hypertension</option>
+    <option value="Heart Disease" {% if user.diseases == 'Heart Disease' %}selected{% endif %}>Heart Disease</option>
+    <option value="Asthma" {% if user.diseases == 'Asthma' %}selected{% endif %}>Asthma</option>
+    <option value="Allergy" {% if user.diseases == 'Allergy' %}selected{% endif %}>Allergy</option>
+    <option value="Cancer" {% if user.diseases == 'Cancer' %}selected{% endif %}>Cancer</option>
+    <option value="Other" {% if user.diseases and user.diseases not in ['Diabetes','Hypertension','Heart Disease','Asthma','Allergy','Cancer'] %}selected{% endif %}>Other</option>
+</select>
+
+<input type="text" id="diseases-other" name="diseases_other"
+       class="diseases_other {% if user.diseases and user.diseases not in ['Diabetes','Hypertension','Heart Disease','Asthma','Allergy','Cancer'] %}show{% else %}hide{% endif %}"
+       placeholder="Please specify"
+       value="{% if user.diseases and user.diseases not in ['Diabetes','Hypertension','Heart Disease','Asthma','Allergy','Cancer'] %}{{ user.diseases }}{% endif %}">
 
 <label>Number of Residents</label>
 <input class="number_of_residents"
@@ -45,5 +57,21 @@
 
 </div>
 
+<!-- JS to toggle Other input -->
+<script>
+const select = document.getElementById("diseases-select");
+const otherInput = document.getElementById("diseases-other");
+
+select.addEventListener("change", function() {
+    if (this.value === "Other") {
+        otherInput.classList.remove("hide");
+        otherInput.classList.add("show");
+    } else {
+        otherInput.classList.remove("show");
+        otherInput.classList.add("hide");
+        otherInput.value = "";
+    }
+});
+</script>
 
 {% endblock %}

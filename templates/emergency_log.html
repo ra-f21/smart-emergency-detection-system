@@ -1,32 +1,35 @@
 {% extends "base.html" %}
 {% block content %}
-<h2>Emergency Log</h2>
 
-<p>
-  <a href="{{ url_for('add_test_emergency', emergency_type='fire') }}">Add Test Fire</a> |
-  <a href="{{ url_for('add_test_emergency', emergency_type='fall') }}">Add Test Fall</a>
-</p>
+<h2>Emergency Logs</h2>
 
 {% if logs %}
-  <table border="1" cellpadding="10" style="margin:auto; background:white;">
-    <tr>
-      <th>ID</th>
-      <th>Emergency Type</th>
-      <th>Status</th>
-      <th>Timestamp</th>
-    </tr>
+    <div class="dashboard-box" style="background:#ffdddd; margin-bottom:20px;">
+        <h3>Latest Emergency</h3>
+        <p><strong>Type:</strong> {{ logs[0].emergency_type }}</p>
+        <p><strong>Status:</strong> {{ logs[0].status }}</p>
+        <p><strong>Time:</strong> {{ logs[0].timestamp }}</p>
+    </div>
 
-    {% for log in logs %}
-    <tr>
-      <td>{{ log.id }}</td>
-      <td>{{ log.emergency_type }}</td>
-      <td>{{ log.status }}</td>
-      <td>{{ log.timestamp }}</td>
-    </tr>
-    {% endfor %}
-  </table>
+    <table border="1" cellpadding="10" style="margin:auto; background:white;">
+        <tr>
+            <th>ID</th>
+            <th>Emergency Type</th>
+            <th>Status</th>
+            <th>Timestamp</th>
+        </tr>
+
+        {% for log in logs %}
+        <tr>
+            <td>{{ log.id }}</td>
+            <td>{{ log.emergency_type }}</td>
+            <td>{{ log.status }}</td>
+            <td>{{ log.timestamp }}</td>
+        </tr>
+        {% endfor %}
+    </table>
 {% else %}
-  <p>No emergency records yet.</p>
+    <p>No emergency records yet.</p>
 {% endif %}
 
 {% endblock %}
