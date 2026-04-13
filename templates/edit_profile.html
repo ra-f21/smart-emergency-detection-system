@@ -1,0 +1,96 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Update Profile</h2>
+
+<div class="Register-container">
+    <form method="POST">
+        <label>Full Name</label>
+        <input type="text" name="full_name" value="{{ user.full_name }}" required>
+
+        <label>Age</label>
+        <input type="number" name="age" value="{{ user.age }}" required>
+
+        <label>Medical Conditions</label>
+        <div class="checkbox-group">
+            <div class="checkbox-item">
+                <input type="checkbox" name="diseases" value="None" id="NoneCheckbox" class="disease-check"
+                       {% if not user.diseases or user.diseases == 'None' %}checked{% endif %}>
+                <label for="NoneCheckbox"><strong>None</strong></label>
+            </div>
+            <hr style="margin: 10px 0; opacity: 0.2;">
+
+            {% set options = ['Diabetes', 'Hypertension', 'Heart Disease', 'Asthma', 'Allergy', 'Cancer'] %}
+            {% for option in options %}
+            <div class="checkbox-item">
+                <input type="checkbox" name="diseases" value="{{ option }}" id="{{ option }}" class="disease-check other-disease"
+                       {% if user.diseases and option in user.diseases %}checked{% endif %}>
+                <label for="{{ option }}">{{ option }}</label>
+            </div>
+            {% endfor %}
+
+            <div class="checkbox-item">
+                <input type="checkbox" name="diseases" value="Other" id="OtherCheckbox" class="disease-check other-disease"
+                       {% if user.diseases and "Other" in user.diseases %}checked{% endif %}>
+                <label for="OtherCheckbox">Other</label>
+            </div>
+
+            <input type="text" id="diseases-other" name="diseases_other" 
+                   class="input-field {% if user.diseases and 'Other' in user.diseases %}show{% else %}hide{% endif %}" 
+                   placeholder="Please specify..." 
+                   value="{{ user.diseases_other if user.diseases_other else '' }}">
+        </div>
+        <label>Number of Residents</label>
+        <input name="number_of_residents" type="number" value="{{ user.number_of_residents }}" required>
+
+        <label>Location</label>
+        <input name="location" value="{{ user.location }}" required>
+
+        <div class="form-actions">
+            <button class="sub-btn" type="submit">Save Changes</button>
+            <a href="{{ url_for('dashboard') }}" class="cancel-link">Cancel</a>
+        </div>
+    </form>
+</div>
+<script>
+    const noneCheck = document.getElementById("NoneCheckbox");
+    const otherDiseaseChecks = document.querySelectorAll(".other-disease");
+    const otherTextCheck = document.getElementById("OtherCheckbox");
+    const otherInput = document.getElementById("diseases-other");
+
+    // Logic for "None" vs Others
+    noneCheck.addEventListener("change", function() {
+        if (this.checked) {
+            // Uncheck all other diseases
+            otherDiseaseChecks.forEach(cb => cb.checked = false);
+            // Hide and clear the 'Other' text box
+            otherInput.classList.remove("show");
+            otherInput.classList.add("hide");
+            otherInput.required = false;
+            otherInput.value = "";
+        }
+    });
+
+    otherDiseaseChecks.forEach(cb => {
+        cb.addEventListener("change", function() {
+            if (this.checked) {
+                // If any disease is checked, "None" must be unchecked
+                noneCheck.checked = false;
+            }
+            
+            // Specifically handle the "Other" text box display
+            if (this.id === "OtherCheckbox") {
+                if (this.checked) {
+                    otherInput.classList.add("show");
+                    otherInput.classList.remove("hide");
+                    otherInput.required = true;
+                } else {
+                    otherInput.classList.add("hide");
+                    otherInput.classList.remove("show");
+                    otherInput.required = false;
+                }
+            }
+        });
+    });
+</script>
+{% endblock %}

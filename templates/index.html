@@ -2,29 +2,116 @@
 
 {% block content %}
 
-
-
-<div class="status-box">
-  <p>"--REPLACE WITH PROJECT NAME--" is a smart emergency detection system that is designed and implemented to
-    be able to catch up emergency situations as fast as possible.
-    This is a system that can detect three emergency situations: health detoriaration, crime detection, and fire detection.
-    In this website you will be able to find the latest updates of our system, your emergency logs, and your profile's information.
-  </p>
+<div class="hero-section">
+    <div class="hero-overlay">
+        <div class="status-badge pulse-green">
+            <span class="live-dot"></span> System Online & Monitoring
+        </div>
+        <h1>Smart Emergency Detection <span class="text-primary">Console</span></h1>
+        <p>Advanced AI surveillance protecting lives through real-time fire, fall, and crime detection.</p>
+        <div class="hero-cta">
+            <a href="{{ url_for('live_stream') }}" class="btn-primary">Launch Live Stream</a>
+            <a href="#about" class="btn-outline">System Documentation</a>
+        </div>
+    </div>
+    <img src="{{ url_for('static', filename='images/Emerg1.png') }}" class="hero-bg-img">
 </div>
 
-<h3>Highlights & Updates</h3>
-<div class="panels-container">
-    <div class="panel">
-        <img src="{{ url_for('static', filename='images/update1.jpg') }}" alt="Update 1">
-        <p>New AI emergency detection model integrated.</p>
+<div class="dashboard-cards">
+    <div class="card stat-card">
+        <div class="card-icon red">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
+                <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zM8 1.918l-.797.161A4.002 4.002 0 0 0 4 6c0 .628-.134 2.197-.459 3.742-.16.767-.376 1.566-.663 2.258h10.244c-.287-.692-.502-1.49-.663-2.258C12.134 8.197 12 6.628 12 6a4.002 4.002 0 0 0-3.203-3.92L8 1.917zM14.22 12c.223.447.482.801.78 1H1c.299-.199.557-.553.78-1C2.68 10.2 3 6.88 3 6c0-2.42 1.72-4.44 4.005-4.901a1 1 0 1 1 1.99 0A5.002 5.002 0 0 1 13 6c0 .88.32 4.2 1.22 6z"/>
+            </svg>
+        </div>
+        <div class="stat-info">
+            <h3>Emergencies</h3>
+            <p class="stat-value">{{ total_emergencis }}</p>
+        </div>
     </div>
-    <div class="panel">
-        <img src="{{ url_for('static', filename='images/update2.jpg') }}" alt="Update 2">
-        <p>Live video streaming enabled.</p>
+
+    <div class="card stat-card">
+        <div class="card-icon blue">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
+                <path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM5.216 14A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1h4.216zM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/>
+            </svg>
+        </div>
+        <div class="stat-info">
+            <h3>Active Users</h3>
+            <p class="stat-value">{{ total_users }}</p>
+        </div>
     </div>
-    <div class="panel">
-        <img src="{{ url_for('static', filename='images/update3.jpg') }}" alt="Update 3">
-        <p>User-friendly dashboard improvements.</p>
+
+    <div class="card stat-card">
+        <div class="card-icon green">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
+                <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"/>
+                <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z"/>
+            </svg>
+        </div>
+        <div class="stat-info">
+            <h3>Latency</h3>
+            <p class="stat-value">{{ latency }}ms</p>
+        </div>
+    </div>
+</div>
+
+<div class="content-section">
+    <div class="section-header">
+        <h2>Control Center</h2>
+        <p>Navigate to primary system functions</p>
+    </div>
+    
+    <div class="action-grid">
+        <a href="{{ url_for('live_stream') }}" class="action-card">
+            <div class="action-icon"></div>
+            <h4>Live Feed</h4>
+            <span>Monitor surveillance in real-time</span>
+        </a>
+        <a href="{{ url_for('emergency_log') }}" class="action-card">
+            <div class="action-icon"></div>
+            <h4>Incident Logs</h4>
+            <span>Review past detection events</span>
+        </a>
+        <a href="{{ url_for('dashboard') }}" class="action-card">
+            <div class="action-icon"></div>
+            <h4>User Profile</h4>
+            <span>Manage medical and contact data</span>
+        </a>
+    </div>
+</div>
+
+<div class="content-section alternate-bg">
+    <div class="section-header">
+        <h2>System Intelligence</h2>
+        <p>Recent model updates and feature deployments</p>
+    </div>
+
+    <div class="panels-container">
+        <div class="panel-modern">
+            <div class="panel-tag">NEW MODEL</div>
+            <p><strong>Fire Detection v2.4</strong></p>
+            <p>Improved MQ-2 sensor sensitivity calibration for rapid smoke detection.</p>
+        </div>
+
+        <div class="panel-modern">
+            <div class="panel-tag">FEATURE</div>
+            <p><strong>Low-Latency Stream</strong></p>
+            <p>H.264 video encoding optimized for Raspberry Pi 4 hardware.</p>
+        </div>
+
+        <div class="panel-modern">
+            <div class="panel-tag">AI UPDATE</div>
+            <p><strong>Fall Detection</strong></p>
+            <p>Enhanced Pose Estimation model to reduce false positives in low light.</p>
+        </div>
+    </div>
+</div>
+
+<div id="about" class="about-modern">
+    <div class="about-content">
+        <h2>About the Project</h2>
+        <p>Developed as a graduation project, this <strong>Smart Emergency Detection System</strong> integrates IoT hardware with Edge Machine Learning. By processing data directly on the Raspberry Pi, we ensure privacy and near-instant response times for fire, health, and security emergencies.</p>
     </div>
 </div>
 

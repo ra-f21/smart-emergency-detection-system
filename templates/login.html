@@ -3,7 +3,7 @@
     <title>Smart Emergency Detection System</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
-
+{% extends "base.html" %}
 {% block content %}
 <div class="Proj-title">
 <h1>Smart Emergency Detection System</h1>
@@ -38,9 +38,6 @@
                 class="password-input"
             >
 
-            <button type="button" class="eye-btn" onclick="togglePassword()">
-                👁
-            </button>
 
         </div>
 

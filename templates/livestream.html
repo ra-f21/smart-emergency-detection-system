@@ -2,15 +2,46 @@
 
 {% block content %}
 
-<h2>Live Stream</h2>
-
 <div class="status-box">
 
-    <!-- This will work later when camera is connected -->
-    <img src="{{ url_for('video_feed') }}" width="500">
+   <div class="stream-header">
+    <h2><span class="live-dot"></span> Live Security Feed</h2>
+    <p class="system-status">System Status: <span class="text-success">Monitoring</span></p>
+</div>
 
-    <!-- Fallback message -->
-    <p>If no video appears, please connect your camera.</p>
+<div class="monitoring-layout">
+    <div class="video-frame">
+        <img src="{{ url_for('video_feed') }}" class="main-stream" alt="Live Camera Feed">
+        <div class="stream-overlay">
+            <div class="timestamp" id="clock"></div>
+            <div class="cam-id">CAM-01: Main Hallway</div>
+        </div>
+    </div>
+
+    <div class="stream-sidebar">
+        <h3>AI Analytics</h3>
+        <div class="stat-card">
+            <label>Fire Detection</label>
+            <div class="status-indicator green">Inactive</div>
+        </div>
+        <div class="stat-card">
+            <label>Fall Detection</label>
+            <div class="status-indicator green">Normal</div>
+        </div>
+        <div class="stat-card">
+            <label>Smoke Level (MQ-2)</label>
+            <div class="sensor-value">0.12 mg/L</div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Simple clock for the overlay
+    function updateClock() {
+        document.getElementById('clock').innerText = new Date().toLocaleTimeString();
+    }
+    setInterval(updateClock, 1000);
+</script>
 
 </div>
 

@@ -1,35 +1,40 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h2>Emergency Logs</h2>
+<div class="log-header">
+    <h2>Emergency History Logs</h2>
+    <button class="export-btn">Download PDF Report</button>
+</div>
 
-{% if logs %}
-    <div class="dashboard-box" style="background:#ffdddd; margin-bottom:20px;">
-        <h3>Latest Emergency</h3>
-        <p><strong>Type:</strong> {{ logs[0].emergency_type }}</p>
-        <p><strong>Status:</strong> {{ logs[0].status }}</p>
-        <p><strong>Time:</strong> {{ logs[0].timestamp }}</p>
-    </div>
-
-    <table border="1" cellpadding="10" style="margin:auto; background:white;">
-        <tr>
-            <th>ID</th>
-            <th>Emergency Type</th>
-            <th>Status</th>
-            <th>Timestamp</th>
-        </tr>
-
-        {% for log in logs %}
-        <tr>
-            <td>{{ log.id }}</td>
-            <td>{{ log.emergency_type }}</td>
-            <td>{{ log.status }}</td>
-            <td>{{ log.timestamp }}</td>
-        </tr>
-        {% endfor %}
+<div class="log-container">
+    {% if logs %}
+    <table class="modern-table">
+        <thead>
+            <tr>
+                <th>Severity</th>
+                <th>Event Type</th>
+                <th>Time Detected</th>
+                <th>Status</th>
+                <th>Action Taken</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for log in logs %}
+            <tr class="severity-{{ log.emergency_type | lower }}">
+                <td><span class="severity-dot"></span></td>
+                <td><strong>{{ log.emergency_type }}</strong></td>
+                <td>{{ log.timestamp }}</td>
+                <td><span class="status-pill">{{ log.status }}</span></td>
+                <td><button class="view-details">Details</button></td>
+            </tr>
+            {% endfor %}
+        </tbody>
     </table>
-{% else %}
-    <p>No emergency records yet.</p>
-{% endif %}
+    {% else %}
+    <div class="empty-state">
+        <p>No emergencies detected. System is secure.</p>
+    </div>
+    {% endif %}
+</div>
 
 {% endblock %}
