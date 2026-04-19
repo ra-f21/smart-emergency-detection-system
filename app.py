@@ -2,8 +2,8 @@ from flask import Flask, render_template, request, redirect, url_for, flash, Res
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager, UserMixin, login_user, logout_user, login_required, current_user
 from werkzeug.security import generate_password_hash, check_password_hash
-import datetime
-import time # Added for latency calculation
+from datetime import datetime
+import time
 
 app = Flask(__name__)
 app.config["SECRET_KEY"] = "change-this-later-but-keep-it-secret"
@@ -48,7 +48,7 @@ class EmergencyLog(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     emergency_type = db.Column(db.String(50)) # e.g., 'Fire', 'Fall'
     status = db.Column(db.String(50), default='Unresolved')
-    timestamp = db.Column(db.DateTime, default=datetime.datetime.utcnow)
+    timestamp = db.Column(db.DateTime, default=datetime.utcnow)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
 
 @login_manager.user_loader
