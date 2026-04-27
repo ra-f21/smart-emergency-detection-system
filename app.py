@@ -2,8 +2,11 @@ from flask import Flask, render_template, request, redirect, url_for, flash, Res
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager, UserMixin, login_user, logout_user, login_required, current_user
 from werkzeug.security import generate_password_hash, check_password_hash
-from datetime import datetime
+from datetime import datetime, timedelta
 import time
+import re
+import cv2  # Import OpenCV
+from ultralytics import YOLO # Import YOLO
 
 app = Flask(__name__)
 app.config["SECRET_KEY"] = "change-this-later-but-keep-it-secret"
@@ -11,6 +14,10 @@ app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///seds.db"
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
 db = SQLAlchemy(app)
+
+# --- LOAD YOUR TRAINED MODEL ---
+# Make sure best.pt is in the same folder as app.py
+model = YOLO("best.pt")
 
 login_manager = LoginManager(app)
 login_manager.login_view = "login"
@@ -51,6 +58,47 @@ class EmergencyLog(db.Model):
     timestamp = db.Column(db.DateTime, default=datetime.utcnow)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
 
+# --- DETECTION LOGIC WITH COOLDOWN ---
+# This dictionary prevents spamming the database
+# It stores the last time a specific event was logged for a user
+last_logged_event = {}
+
+def log_emergency_to_db(user_id, e_type):
+    now = datetime.now()
+    key = f"{user_id}_{e_type}"
+    
+    if key not in last_logged_event or (now - last_logged_event[key]) > timedelta(seconds=10):
+        # We MUST use the app_context to talk to the database from the generator
+        with app.app_context(): 
+            try:
+                new_log = EmergencyLog(emergency_type=e_type, user_id=user_id, status="Active")
+                db.session.add(new_log)
+                db.session.commit()
+                last_logged_event[key] = now
+                print(f"✅ SUCCESS: Logged {e_type} to database!")
+            except Exception as e:
+                print(f"❌ DATABASE ERROR: {e}")
+
+# --- CAMERA / YOLO GENERATOR ---
+def generate_frames(user_id):
+    camera = cv2.VideoCapture(0) 
+    while True:
+        success, frame = camera.read()
+        if not success:
+            break
+        else:
+            results = model(frame, conf=0.5)
+            for r in results:
+                for box in r.boxes:
+                    label = model.names[int(box.cls[0])]
+                    if label in ['fire', 'Gun', 'Knife', 'Fall', 'smoke']:
+                        log_type = "Weapon" if label in ["Gun", "Knife"] else label
+                        log_emergency_to_db(user_id, log_type)
+
+            ret, buffer = cv2.imencode('.jpg', results[0].plot())
+            yield (b'--frame\r\n'
+                   b'Content-Type: image/jpeg\r\n\r\n' + buffer.tobytes() + b'\r\n')
+
 @login_manager.user_loader
 def load_user(user_id):
     return db.session.get(User, int(user_id))
@@ -74,8 +122,22 @@ def home():
 def register():
     if request.method == "POST":
         full_name = request.form["full_name"]
-        email = request.form["email"]
+        email = request.form["email"].strip().lower()
         password = request.form["password"]
+
+        if len(password) < 8:
+            flash("Password must be longer than 8 characters", "danger")
+            return redirect(url_for("register"))
+
+        email_regex = r'^[a-zA-A0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$'
+        if not re.match(email_regex, email):
+            flash("Please enter a valid email address", "danger")
+            return redirect(url_for("register"))
+        
+        domain = email.split('@')[-1]
+        if len(domain.split('.')[0]) < 2:
+            flash("This email looks invalid", "danger")
+            return redirect(url_for("register"))
 
         # --- FIX FOR THE DATE/AGE ERROR ---
         birth_date_str = request.form.get("age") # This is getting '2017-06-13'
@@ -90,7 +152,21 @@ def register():
             age = 0 
         # ----------------------------------
 
-        diseases = request.form["diseases"]
+        selected_diseases = request.form.getlist("diseases")
+        other_text = request.form.get("diseases_other").strip
+        if "None" in selected_diseases or not selected_diseases:
+            final_diseases = "None"
+        else:
+            if "Other" in selected_diseases and not other_text:
+                flash("Please specify your other medical conditions", "danger")
+                return redirect(url_for("register"))
+            temp_list = []
+            for d in selected_diseases:
+                if d == "Other":
+                    temp_list.append(other_text)
+                else:
+                    temp_list.append(d)
+                    final_diseases = ", ".join(temp_list)
         number_of_residents = int(request.form.get("number_of_residents", 1))
         location = request.form["location"]
 
@@ -105,7 +181,7 @@ def register():
             email=email,
             password=hashed_pw,
             age=age,
-            diseases=diseases,
+            diseases=final_diseases,
             number_of_residents=number_of_residents,
             location=location
         )
@@ -190,19 +266,10 @@ def emergency_log():
 def live_stream():
     return render_template("livestream.html")
 
-def generate_frames():
-    """Placeholder for camera stream logic (OpenCV)"""
-    while True:
-        # In a real app, you would capture frames here
-        # frame = camera.get_frame()
-        # yield (b'--frame\r\n' b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')
-        pass
-
 @app.route("/video_feed")
 @login_required
 def video_feed():
-    # This returns a streaming response
-    return "Streaming..."
+    return Response(generate_frames(current_user.id), mimetype='multipart/x-mixed-replace; boundary=frame')
 
 @app.route("/logout")
 @login_required
@@ -214,4 +281,4 @@ def logout():
 if __name__ == "__main__":
     with app.app_context():
         db.create_all()
-    app.run(debug=True)
+    app.run(debug=True, port=5000)

@@ -21,11 +21,18 @@
         <tbody>
             {% for log in logs %}
             <tr class="severity-{{ log.emergency_type | lower }}">
-                <td><span class="severity-dot"></span></td>
+                <td><span class="severity-dot dot-{{ log.emergency_type | lower }}"></span></td>
                 <td><strong>{{ log.emergency_type }}</strong></td>
                 <td>{{ log.timestamp }}</td>
-                <td><span class="status-pill">{{ log.status }}</span></td>
-                <td><button class="view-details">Details</button></td>
+                <td><span class="status-pill status-{{ log.status | lower }}">
+                    {{ log.status }}
+                </span>
+            </td>
+                <td>
+                    <button class="view-details" onclick="alert('Details for: {{ log.emergency_type }}')">
+                        Details
+                    </button>
+                </td>
             </tr>
             {% endfor %}
         </tbody>
@@ -36,5 +43,13 @@
     </div>
     {% endif %}
 </div>
-
+<style>
+    .dot-fire { background-color: #ff4d4d; }    /* Red */
+    .dot-weapon { background-color: #ffa500; }  /* Orange */
+    .dot-smoke { background-color: #808080; }   /* Grey */
+    .dot-fall { background-color: #9370db; }    /* Purple */
+    
+    .status-active { background: #ffe6e6; color: #cc0000; font-weight: bold; }
+    .status-resolved { background: #e6ffed; color: #008000; }
+</style>
 {% endblock %}

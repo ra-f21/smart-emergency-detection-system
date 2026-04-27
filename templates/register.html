@@ -23,17 +23,31 @@
   <input class="password" name="password" type="password" placeholder="Password" required><br><br>
   <label>Birthdate</label>
   <input class="age" name="age" type="date" required><br><br>
-  <label>Diseases</label>
-  <select class="diseases" name="diseases" id="diseases-select">
-    <option value="">None</option>
-    <option value="Diabetes">Diabetes</option>
-    <option value="Hypertension">Hypertension</option>
-    <option value="Heart Disease">Heart Disease</option>
-    <option value="Asthma">Asthma</option>
-    <option value="Allergy">Allergy</option>
-    <option value="Cancer">Cancer</option>
-    <option value="Other">Other</option>
-  </select>
+  <label>Medical Conditions (Select all that apply)</label>
+<div class="checkbox-group">
+    <div class="checkbox-item">
+        <input type="checkbox" name="diseases" value="None" id="NoneCheckbox" class="disease-check" checked>
+        <label for="NoneCheckbox"><strong>None</strong></label>
+    </div>
+    <hr style="margin: 10px 0; opacity: 0.1;">
+
+    {% set options = ['Diabetes', 'Hypertension', 'Heart Disease', 'Asthma', 'Allergy', 'Cancer'] %}
+    {% for option in options %}
+    <div class="checkbox-item">
+        <input type="checkbox" name="diseases" value="{{ option }}" id="{{ option }}" class="disease-check other-disease">
+        <label for="{{ option }}">{{ option }}</label>
+    </div>
+    {% endfor %}
+
+    <div class="checkbox-item">
+        <input type="checkbox" name="diseases" value="Other" id="OtherCheckbox" class="disease-check other-disease">
+        <label for="OtherCheckbox">Other</label>
+    </div>
+
+    <input type="text" id="diseases-other" name="diseases_other" 
+           class="input-field hide" 
+           placeholder="Please specify your condition">
+</div>
   <input type="text" name="diseases_other" id="diseases-other" class="diseases_other" placeholder="Please specify" style="display:none;" >
   <label>Number of Residents</label>
   <input class= "number_of_residents" name="number_of_residents" type="number" placeholder="Number of Residents" required><br><br>
@@ -43,19 +57,41 @@
   <button class="sub-btn"type="submit">Create Account</button>
 
   <script>
-const select = document.getElementById("diseases-select");
-const otherInput = document.getElementById("diseases-other");
+    const noneCheck = document.getElementById("NoneCheckbox");
+    const otherDiseaseChecks = document.querySelectorAll(".other-disease");
+    const otherTextCheck = document.getElementById("OtherCheckbox");
+    const otherInput = document.getElementById("diseases-other");
 
-select.addEventListener("change", function() {
-    if (this.value === "Other") {
-        otherInput.style.display = "block";
-        otherInput.required = true;  // only required if "Other" is selected
-    } else {
-        otherInput.style.display = "none";
-        otherInput.required = false; // remove required otherwise
-        otherInput.value = "";
-    }
-});
+    // If "None" is checked, uncheck everything else
+    noneCheck.addEventListener("change", function() {
+        if (this.checked) {
+            otherDiseaseChecks.forEach(cb => cb.checked = false);
+            otherInput.classList.add("hide");
+            otherInput.required = false;
+            otherInput.value = "";
+        }
+    });
+
+    // If any disease is checked, uncheck "None"
+    otherDiseaseChecks.forEach(cb => {
+        cb.addEventListener("change", function() {
+            if (this.checked) {
+                noneCheck.checked = false;
+            }
+            
+            // Handle "Other" input visibility
+            if (this.id === "OtherCheckbox") {
+                if (this.checked) {
+                    otherInput.classList.remove("hide");
+                    otherInput.required = true;
+                } else {
+                    otherInput.classList.add("hide");
+                    otherInput.required = false;
+                    otherInput.value = "";
+                }
+            }
+        });
+    });
 </script>
 </form>
 <div class="login-comment">
