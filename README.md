@@ -53,9 +53,9 @@ D. User Dashboard (Flask)
 # 5. Setup Instructions
 - **Step 1: Clone and Install Dependencies**
 ```
-- git clone https://github.com/ra-f21/smart-emergency-detection-system
-- cd tech-salam
-- pip install -r requirements.txt
+git clone https://github.com/ra-f21/smart-emergency-detection-system
+cd tech-salam
+pip install -r requirements.txt
   ```
 - **Step 2: Hardware Connection**
 - Connect the MQ-2 Sensor and Buzzer to the Arduino Uno.
@@ -67,7 +67,7 @@ D. User Dashboard (Flask)
 
 - **Step 4: Run the Application**
 ```
-- py app.py
+py app.py
 ```
 
 # The application will be accessible at:
