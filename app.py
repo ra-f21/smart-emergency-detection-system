@@ -2,27 +2,149 @@ from flask import Flask, render_template, request, redirect, url_for, flash, Res
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager, UserMixin, login_user, logout_user, login_required, current_user
 from werkzeug.security import generate_password_hash, check_password_hash
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 import time
 import re
-import cv2  # Import OpenCV
-from ultralytics import YOLO # Import YOLO
+import cv2
+from ultralytics import YOLO 
+import os
+import subprocess
 
 app = Flask(__name__)
+
 app.config["SECRET_KEY"] = "change-this-later-but-keep-it-secret"
-app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///seds.db"
+app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///seds.db?check_same_thread=False&timeout=30"
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
 db = SQLAlchemy(app)
 
-# --- LOAD YOUR TRAINED MODEL ---
-# Make sure best.pt is in the same folder as app.py
 model = YOLO("best.pt")
 
 login_manager = LoginManager(app)
 login_manager.login_view = "login"
 login_manager.login_message_category = "info"
 
+def sync_logs_from_pi():
+    pi_ip = "192.168.8.190"
+    remote_path = f"pi@{pi_ip}:/home/pi/emergency_logs.txt"
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    local_path = os.path.join(current_dir, "emergency_logs.txt")
+    
+    try:
+        # 1. Pull from Pi
+        subprocess.run(["scp", remote_path, local_path], check=True)
+        # Clear Pi's file
+        subprocess.run(["ssh", f"pi@{pi_ip}", "> /home/pi/emergency_logs.txt"], check=True)
+        
+        if os.path.exists(local_path):
+            with open(local_path, "r") as file:
+                lines = file.readlines()
+            
+            print(f"DEBUG: Found {len(lines)} lines in the log file.") # Check if file is empty
+
+            with app.app_context():
+                new_entries = False
+                for line in lines:
+                    # Clean the line to make it easier to read
+                    clean_line = line.strip()
+                    
+                    if "Detected:" in clean_line:
+                        for label in ['Gun', 'Knife', 'Fall', 'fire', 'smoke']:
+                            # Case-insensitive check
+                            if label.lower() in clean_line.lower():
+                                print(f"DEBUG: Found {label} in line: {clean_line}")
+                                
+                                # COOLDOWN CHECK
+                                # We check the last 10 seconds to avoid spam
+                                time_limit = datetime.now(timezone.utc) - timedelta(seconds=10)
+                                exists = EmergencyLog.query.filter_by(
+                                    user_id=current_user.id, 
+                                    emergency_type=label
+                                ).filter(EmergencyLog.timestamp >= time_limit).first()
+                                
+                                if not exists:
+                                    new_log = EmergencyLog(
+                                        emergency_type=label, 
+                                        user_id=current_user.id, 
+                                        status="Active"
+                                    )
+                                    db.session.add(new_log)
+                                    new_entries = True
+                                    print(f"DEBUG: Adding {label} to Database for User {current_user.id}")
+
+                if new_entries:
+                    db.session.commit()
+                    print("✅ Database successfully updated with new logs.")
+                else:
+                    print("⚠️ No NEW unique detections found in this sync.")
+            
+            os.remove(local_path)
+    except Exception as e:
+        print(f"❌ Sync Error: {e}")
+
+current_dir = os.path.dirname(os.path.abspath(__file__))
+local_path = os.path.join(current_dir, "emergency_logs.txt")
+
+class User(db.Model, UserMixin):
+    id = db.Column(db.Integer, primary_key=True)
+    full_name = db.Column(db.String(120), nullable=False)
+    email = db.Column(db.String(120), unique=True, nullable=False)
+    password = db.Column(db.String(200), nullable=False)
+    age = db.Column(db.Integer, nullable=False)
+    diseases = db.Column(db.String(300), nullable=True)
+    number_of_residents = db.Column(db.Integer, nullable=False)
+    location = db.Column(db.String(200), nullable=False)
+    # Relationship to logs
+    logs = db.relationship('EmergencyLog', backref='owner', lazy=True)
+    emergency_contact = db.Column(db.String(20), nullable=True)
+
+class EmergencyLog(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    emergency_type = db.Column(db.String(50)) # e.g., 'Fire', 'Fall'
+    status = db.Column(db.String(50), default='Unresolved')
+    timestamp = db.Column(db.DateTime, default=lambda: datetime.now(timezone.utc))
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+
+
+def cleanup_old_logs():
+    # Keep only the last 7 days of logs
+    limit = datetime.utcnow() - timedelta(days=7)
+    with app.app_context():
+        EmergencyLog.query.filter(EmergencyLog.timestamp < limit).delete()
+        db.session.commit()
+        print("🧹 Old logs deleted to save space.")
+
+@app.route("/clear_logs")
+@login_required
+def clear_logs():
+    EmergencyLog.query.filter_by(user_id=current_user.id).delete()
+    db.session.commit()
+    return redirect(url_for("emergency_log"))
+
+
+@app.route("/emergency_log")
+@login_required
+def emergency_log():
+    sync_logs_from_pi() # This grabs Pi data
+    # Force a fresh query
+    db.session.expire_all()
+    logs = EmergencyLog.query.filter_by(user_id=current_user.id).order_by(EmergencyLog.timestamp.desc()).all()
+    return render_template("emergency_log.html", logs=logs)
+
+# --- CAMERA / YOLO GENERATOR ---
+def generate_frames(user_id):
+    camera = cv2.VideoCapture(0) 
+    while True:
+        success, frame = camera.read()
+        if not success: break
+        results = model(frame, conf=0.5)
+        for r in results:
+            for box in r.boxes:
+                label = model.names[int(box.cls[0])]
+                if label in ['fire', 'Gun', 'Knife', 'Fall', 'smoke']:
+                    log_emergency_to_db(user_id, label)
+        ret, buffer = cv2.imencode('.jpg', results[0].plot())
+        yield (b'--frame\r\n'b'Content-Type: image/jpeg\r\n\r\n' + buffer.tobytes() + b'\r\n')
 # --- LATENCY TRACKING LOGIC ---
 @app.before_request
 def start_timer():
@@ -37,71 +159,29 @@ def log_latency(response):
     return response
 
 
-# --- MODELS ---
-
-class User(db.Model, UserMixin):
-    id = db.Column(db.Integer, primary_key=True)
-    full_name = db.Column(db.String(120), nullable=False)
-    email = db.Column(db.String(120), unique=True, nullable=False)
-    password = db.Column(db.String(200), nullable=False)
-    age = db.Column(db.Integer, nullable=False)
-    diseases = db.Column(db.String(300), nullable=True)
-    number_of_residents = db.Column(db.Integer, nullable=False)
-    location = db.Column(db.String(200), nullable=False)
-    # Relationship to logs
-    logs = db.relationship('EmergencyLog', backref='owner', lazy=True)
-
-class EmergencyLog(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    emergency_type = db.Column(db.String(50)) # e.g., 'Fire', 'Fall'
-    status = db.Column(db.String(50), default='Unresolved')
-    timestamp = db.Column(db.DateTime, default=datetime.utcnow)
-    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
 
 # --- DETECTION LOGIC WITH COOLDOWN ---
 # This dictionary prevents spamming the database
 # It stores the last time a specific event was logged for a user
 last_logged_event = {}
 
+# --- CAMERA LOGIC ---
 def log_emergency_to_db(user_id, e_type):
-    now = datetime.now()
-    key = f"{user_id}_{e_type}"
-    
-    if key not in last_logged_event or (now - last_logged_event[key]) > timedelta(seconds=10):
-        # We MUST use the app_context to talk to the database from the generator
-        with app.app_context(): 
-            try:
-                new_log = EmergencyLog(emergency_type=e_type, user_id=user_id, status="Active")
+    with app.app_context():
+        user = User.query.get(user_id)
+
+        try:
+            # Check cooldown
+            exists = EmergencyLog.query.filter_by(user_id=user_id, emergency_type=e_type).filter(EmergencyLog.timestamp >= datetime.now(timezone.utc) - timedelta(seconds=10)).first()
+            if not exists:
+                print(f"🚨 ALERT: Calling {user.emergency_contact} for {e_type} incident!")
+                new_log = EmergencyLog(emergency_type=e_type, user_id=user_id)
                 db.session.add(new_log)
                 db.session.commit()
-                last_logged_event[key] = now
-                print(f"✅ SUCCESS: Logged {e_type} to database!")
-            except Exception as e:
-                print(f"❌ DATABASE ERROR: {e}")
-
-# --- CAMERA / YOLO GENERATOR ---
-def generate_frames(user_id):
-    camera = cv2.VideoCapture(0) 
-    while True:
-        success, frame = camera.read()
-        if not success:
-            break
-        else:
-            results = model(frame, conf=0.5)
-            for r in results:
-                for box in r.boxes:
-                    label = model.names[int(box.cls[0])]
-                    if label in ['fire', 'Gun', 'Knife', 'Fall', 'smoke']:
-                        log_type = "Weapon" if label in ["Gun", "Knife"] else label
-                        log_emergency_to_db(user_id, log_type)
-
-            ret, buffer = cv2.imencode('.jpg', results[0].plot())
-            yield (b'--frame\r\n'
-                   b'Content-Type: image/jpeg\r\n\r\n' + buffer.tobytes() + b'\r\n')
-
-@login_manager.user_loader
-def load_user(user_id):
-    return db.session.get(User, int(user_id))
+                print(f"✅ Live Logged: {e_type}")
+        except Exception as e:
+            db.session.rollback()
+            print(f"❌ DB Error: {e}")
 
 # --- ROUTES ---
 
@@ -115,7 +195,7 @@ def home():
         current_latency = 0
 
     return render_template("index.html", 
-                           total_users=total_users, total_emergencies=total_emergencies, latency=current_latency)
+                           total_users=total_users, total_emergencies=EmergencyLog.query.count(), latency=current_latency)
 
 
 @app.route("/register", methods=["GET", "POST"])
@@ -138,6 +218,10 @@ def register():
         if len(domain.split('.')[0]) < 2:
             flash("This email looks invalid", "danger")
             return redirect(url_for("register"))
+        
+        emergency_contact = request.form.get("emergency_contact")
+        if not emergency_contact.isdigit():
+            flash("Emergency contact must contain only numbers!", "danger")
 
         # --- FIX FOR THE DATE/AGE ERROR ---
         birth_date_str = request.form.get("age") # This is getting '2017-06-13'
@@ -183,7 +267,8 @@ def register():
             age=age,
             diseases=final_diseases,
             number_of_residents=number_of_residents,
-            location=location
+            location=location,
+            emergency_contact=emergency_contact
         )
         db.session.add(user)
         db.session.commit()
@@ -196,7 +281,7 @@ def register():
 @app.route("/login", methods=["GET", "POST"])
 def login():
     if current_user.is_authenticated:
-        return redirect(url_for('dashboard'))
+        return redirect(url_for('home'))
 
     if request.method == "POST":
         email = request.form["email"]
@@ -205,7 +290,7 @@ def login():
 
         if user and check_password_hash(user.password, password):
             login_user(user)
-            return redirect(url_for("dashboard"))
+            return redirect(url_for("home"))
         else:
             flash("Invalid email or password.", "danger")
 
@@ -225,7 +310,10 @@ def edit_profile():
         current_user.age = int(request.form["age"])
         current_user.number_of_residents = int(request.form["number_of_residents"])
         current_user.location = request.form["location"]
-
+        current_user.emergency_contact = request.form["emergency_contact"]
+        emergency_contact = request.form.get("emergency_contact")
+        if emergency_contact and not emergency_contact.isdigit():
+            flash("Emergency contact must contain only numbers!", "danger")
         selected_diseases = request.form.getlist("diseases")
         other_text = request.form.get("diseases_other").strip()
 
@@ -253,13 +341,7 @@ def edit_profile():
         return redirect(url_for("dashboard"))
 
     return render_template("edit_profile.html", user=current_user)
-
-@app.route("/emergency_log")
-@login_required
-def emergency_log():
-    # Fetch logs only for the logged-in user, ordered by newest first
-    logs = EmergencyLog.query.filter_by(user_id=current_user.id).order_by(EmergencyLog.timestamp.desc()).all()
-    return render_template("emergency_log.html", logs=logs)
+    
 
 @app.route("/livestream")
 @login_required
@@ -277,6 +359,10 @@ def logout():
     logout_user()
     flash("You have been logged out.", "info")
     return redirect(url_for("home"))
+
+@login_manager.user_loader
+def load_user(user_id):
+    return db.session.get(User, int(user_id))
 
 if __name__ == "__main__":
     with app.app_context():

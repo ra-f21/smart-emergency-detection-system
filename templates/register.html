@@ -23,6 +23,8 @@
   <input class="password" name="password" type="password" placeholder="Password" required><br><br>
   <label>Birthdate</label>
   <input class="age" name="age" type="date" required><br><br>
+  <label>Emergency Contact Number</label>
+  <input type="tel" name="emergency_contact" class="form-control" placeholder="+966..."  pattern= "\d+" oninput="this.value = this.value.replace(/[^0-9]/g, '');" required>
   <label>Medical Conditions (Select all that apply)</label>
 <div class="checkbox-group">
     <div class="checkbox-item">

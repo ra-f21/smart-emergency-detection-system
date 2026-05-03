@@ -3,7 +3,12 @@
 
 <div class="log-header">
     <h2>Emergency History Logs</h2>
-    <button class="export-btn">Download PDF Report</button>
+    <div class="header-actions">
+        <a href="{{ url_for('clear_logs') }}" class="clear-btn" onclick="return confirm('Are you sure you want to delete all logs? This cannot be undone.')">
+            Clear All Logs
+        </a>
+        <button class="export-btn" onclick="window.print()">Download PDF Report</button>
+    </div>
 </div>
 
 <div class="log-container">
@@ -11,27 +16,26 @@
     <table class="modern-table">
         <thead>
             <tr>
-                <th>Severity</th>
                 <th>Event Type</th>
+                <th>Date</th>
                 <th>Time Detected</th>
-                <th>Status</th>
-                <th>Action Taken</th>
+                <th>Incident Reference</th>
             </tr>
         </thead>
         <tbody>
             {% for log in logs %}
-            <tr class="severity-{{ log.emergency_type | lower }}">
-                <td><span class="severity-dot dot-{{ log.emergency_type | lower }}"></span></td>
-                <td><strong>{{ log.emergency_type }}</strong></td>
-                <td>{{ log.timestamp }}</td>
-                <td><span class="status-pill status-{{ log.status | lower }}">
-                    {{ log.status }}
-                </span>
-            </td>
+            <tr>
                 <td>
-                    <button class="view-details" onclick="alert('Details for: {{ log.emergency_type }}')">
-                        Details
-                    </button>
+                    <span class="type-badge badge-{{ log.emergency_type | lower }}">
+                        {{ log.emergency_type }}
+                    </span>
+                </td>
+                <td>{{ log.timestamp.strftime('%Y-%m-%d') }}</td>
+                <td>{{ log.timestamp.strftime('%H:%M') }}</td>
+                <td>
+                    <a href="{{ url_for('live_stream') }}" class="view-details">
+                        View Live Feed
+                    </a>
                 </td>
             </tr>
             {% endfor %}
@@ -43,13 +47,76 @@
     </div>
     {% endif %}
 </div>
+
 <style>
-    .dot-fire { background-color: #ff4d4d; }    /* Red */
-    .dot-weapon { background-color: #ffa500; }  /* Orange */
-    .dot-smoke { background-color: #808080; }   /* Grey */
-    .dot-fall { background-color: #9370db; }    /* Purple */
-    
-    .status-active { background: #ffe6e6; color: #cc0000; font-weight: bold; }
-    .status-resolved { background: #e6ffed; color: #008000; }
+    /* Table Styling */
+    .modern-table {
+        width: 100%;
+        border-collapse: collapse;
+        background: white;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .modern-table th {
+        background-color: #2c3e50;
+        color: white;
+        padding: 15px;
+        text-align: left;
+    }
+
+    .modern-table td {
+        padding: 12px 15px;
+        border-bottom: 1px solid #eee;
+    }
+
+    /* Type Badges */
+    .type-badge {
+        padding: 5px 12px;
+        border-radius: 20px;
+        font-size: 0.85rem;
+        font-weight: bold;
+        text-transform: uppercase;
+        color: white;
+    }
+
+    /* Specific Colors for each Class */
+    .badge-fire { background-color: #e74c3c; }   /* Red */
+    .badge-gun { background-color: #2c3e50; }    /* Dark Blue/Black */
+    .badge-knife { background-color: #95a5a6; }  /* Silver/Grey */
+    .badge-fall { background-color: #9b59b6; }   /* Purple */
+    .badge-smoke { background-color: #7f8c8d; }  /* Smoke Grey */
+
+    /* Incident Reference Button */
+    .view-details {
+        text-decoration: none;
+        background-color: #3498db;
+        color: white;
+        padding: 6px 12px;
+        border-radius: 4px;
+        font-size: 0.8rem;
+        transition: background 0.3s;
+    }
+
+    .view-details:hover {
+        background-color: #2980b9;
+    }
+
+    .log-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+
+    .export-btn {
+        background-color: #27ae60;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
 </style>
 {% endblock %}
