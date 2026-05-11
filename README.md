@@ -9,8 +9,11 @@ Tech سلام is an integrated security and safety solution that uses Computer V
    - Hardware-To-Web Connection
    - System Calibration
 
-- **Njood AlKhamis** -
-
+- **Njood AlKhamis** - System Engineer
+   - Hardware Integration
+   - Hardware-To-Web Connection
+   - System Calibration
+ 
 - **Noura AlDrees** -
 
 - **Rahaf Quwaider** -
