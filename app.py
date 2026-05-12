@@ -16,7 +16,7 @@ from flask import jsonify
 app = Flask(__name__)
 
 # Create secret key + Database timeout + Disable modifications on database to maintain storage
-app.config["SECRET_KEY"] = "adnfjnwoi4r8y9wfebq9"
+app.config["SECRET_KEY"] = "CHANGE_THIS_TO_A_RANDOM_SECRET_KEY"
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///seds.db?check_same_thread=False&timeout=30"
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
