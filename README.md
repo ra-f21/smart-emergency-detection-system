@@ -16,8 +16,12 @@ Tech سلام is an integrated security and safety solution that uses Computer V
  
 - **Noura AlDrees** -
 
-- **Rahaf Quwaider** -
-
+- **Rahaf Alquwaider** -
+  - Backend Development
+  - Database Management
+  - Dataset Collection and Preparation
+  - System Testing
+    
 # 2. Project Overview
 Use Case: Conventional security systems require manual monitoring, which leads to slow response times during fires or violent incidents.
 Tech سلام addresses this by offering:
