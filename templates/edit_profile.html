@@ -47,7 +47,7 @@
                 placeholder="Please specify..." value="{{ user.diseases_other if user.diseases_other else '' }}">
         </div>
         <label>Number of Residents</label>
-        <input name="number_of_residents" type="number" value="{{ user.number_of_residents }}" required>
+        <input name="number_of_residents" type="number" min="0" oninput="this.value = Math.abs(this.value)" value="{{ user.number_of_residents }}" required>
 
         <label>Location</label>
         <input name="location" value="{{ user.location }}" required>
@@ -64,12 +64,10 @@
     const otherTextCheck = document.getElementById("OtherCheckbox");
     const otherInput = document.getElementById("diseases-other");
 
-    // Logic for "None" vs Others
+  
     noneCheck.addEventListener("change", function () {
         if (this.checked) {
-            // Uncheck all other diseases
             otherDiseaseChecks.forEach(cb => cb.checked = false);
-            // Hide and clear the 'Other' text box
             otherInput.classList.remove("show");
             otherInput.classList.add("hide");
             otherInput.required = false;
@@ -80,11 +78,9 @@
     otherDiseaseChecks.forEach(cb => {
         cb.addEventListener("change", function () {
             if (this.checked) {
-                // If any disease is checked, "None" must be unchecked
                 noneCheck.checked = false;
             }
 
-            // Specifically handle the "Other" text box display
             if (this.id === "OtherCheckbox") {
                 if (this.checked) {
                     otherInput.classList.add("show");

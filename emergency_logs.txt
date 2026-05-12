@@ -1,0 +1,943 @@
+2026-05-11 23:09:54 - Detected: Knife - Image: detected_Knife_2026-05-11_23-09-54.jpg
+2026-05-11 23:10:05 - Detected: Knife - Image: detected_Knife_2026-05-11_23-10-05.jpg
+
+Fall timer: 4.5s
+Fall timer: 4.8s
+Gas Value: 41 | Gas Detected: False
+Fall timer: 5.1s
+Fall timer: 5.4s
+Fall timer: 5.7s
+Gas Value: 38 | Gas Detected: False
+Fall timer: 6.0s
+Fall timer: 6.3s
+Fall timer: 6.6s
+Fall timer: 6.9s
+Gas Value: 40 | Gas Detected: False
+Fall timer: 7.2s
+Fall timer: 7.5s
+Fall timer: 7.8s
+Gas Value: 38 | Gas Detected: False
+Fall timer: 8.2s
+Fall timer: 8.5s
+Fall timer: 8.8s
+Gas Value: 38 | Gas Detected: False
+Fall timer: 9.2s
+Fall timer: 9.5s
+Fall timer: 9.8s
+Fall timer: 10.1s
+Logged: Fall | Image: detected_Fall_2026-05-11_23-08-22.jpg
+Gas Value: 39 | Gas Detected: False
+Fall timer: 10.5s
+Fall timer: 10.8s
+Fall timer: 11.1s
+Gas Value: 40 | Gas Detected: False
+Fall timer: 11.4s
+Fall timer: 11.7s
+Fall timer: 12.0s
+Gas Value: 40 | Gas Detected: False
+Fall timer: 12.3s
+Fall timer: 12.6s
+Fall timer: 12.9s
+Fall timer: 13.2s
+Gas Value: 39 | Gas Detected: False
+Fall timer: 13.5s
+Fall timer: 13.8s
+Fall timer: 14.1s
+Gas Value: 40 | Gas Detected: False
+Fall detected. Starting timer...
+Fall timer: 0.0s
+Fall timer: 0.3s
+Fall timer: 0.6s
+Gas Value: 40 | Gas Detected: False
+Fall timer: 0.9s
+Fall timer: 1.2s
+Fall timer: 1.5s
+Gas Value: 40 | Gas Detected: False
+Fall timer: 1.8s
+Fall timer: 2.1s
+Fall timer: 2.4s
+Fall timer: 2.7s
+Gas Value: 40 | Gas Detected: False
+Fall timer: 3.0s
+Fall timer: 3.3s
+Fall timer: 3.6s
+Gas Value: 40 | Gas Detected: False
+Fall timer: 3.9s
+Fall timer: 4.2s
+Fall timer: 4.5s
+Fall timer: 4.8s
+Gas Value: 39 | Gas Detected: False
+Fall timer: 5.1s
+Fall timer: 5.4s
+Fall timer: 5.7s
+Gas Value: 39 | Gas Detected: False
+Fall timer: 6.0s
+Fall timer: 6.3s
+Fall timer: 6.6s
+Fall timer: 6.9s
+Gas Value: 40 | Gas Detected: False
+Fall timer: 7.2s
+Fall timer: 7.5s
+Fall timer: 7.8s
+Gas Value: 40 | Gas Detected: False
+Fall timer: 8.1s
+Fall timer: 8.4s
+Fall timer: 8.7s
+Fall timer: 9.0s
+Gas Value: 40 | Gas Detected: False
+Fall timer: 9.3s
+Fall timer: 9.6s
+Fall timer: 9.9s
+Gas Value: 39 | Gas Detected: False
+Fall timer: 10.2s
+Logged: Fall | Image: detected_Fall_2026-05-11_23-08-37.jpg
+Fall timer: 10.5s
+Fall timer: 10.8s
+Fall timer: 11.1s
+Gas Value: 39 | Gas Detected: False
+Fall timer: 11.4s
+Fall timer: 11.7s
+Fall timer: 12.0s
+Gas Value: 39 | Gas Detected: False
+Fall timer: 12.3s
+Fall timer: 12.6s
+Fall timer: 12.9s
+Fall timer: 13.2s
+Gas Value: 40 | Gas Detected: False
+Fall timer: 13.5s
+Fall timer: 13.8s
+Fall timer: 14.1s
+Gas Value: 40 | Gas Detected: False
+Fall timer: 14.4s
+Fall timer: 14.7s
+Fall timer: 15.0s
+Fall timer: 15.3s
+Gas Value: 40 | Gas Detected: False
+Fall detected. Starting timer...
+Fall timer: 0.0s
+Fall timer: 0.3s
+Gas Value: 39 | Gas Detected: False
+Fall timer: 0.6s
+Fall timer: 0.9s
+Fall timer: 1.2s
+Gas Value: 38 | Gas Detected: False
+Fall timer: 1.5s
+Fall timer: 1.8s
+Fall timer: 2.1s
+Fall timer: 2.4s
+Gas Value: 39 | Gas Detected: False
+Fall timer: 2.7s
+Fall timer: 3.0s
+Fall timer: 3.3s
+Gas Value: 40 | Gas Detected: False
+Fall timer: 3.6s
+Fall timer: 3.9s
+Fall timer: 4.2s
+Fall timer: 4.5s
+Gas Value: 39 | Gas Detected: False
+Fall timer: 4.8s
+Fall timer: 5.1s
+Fall timer: 5.4s
+Gas Value: 39 | Gas Detected: False
+Fall timer: 5.7s
+Fall timer: 6.0s
+Fall timer: 6.3s
+Fall timer: 6.6s
+Gas Value: 40 | Gas Detected: False
+Gas Value: 40 | Gas Detected: False
+Fall detected. Starting timer...
+Fall timer: 0.0s
+Fall timer: 0.3s
+Fall timer: 0.6s
+Gas Value: 39 | Gas Detected: False
+Fall timer: 0.9s
+Fall timer: 1.2s
+Fall timer: 1.5s
+Gas Value: 36 | Gas Detected: False
+Fall timer: 1.8s
+Fall timer: 2.1s
+Fall timer: 2.4s
+Fall timer: 2.7s
+Gas Value: 39 | Gas Detected: False
+Fall timer: 3.0s
+Fall timer: 3.3s
+Fall timer: 3.6s
+Gas Value: 39 | Gas Detected: False
+Fall timer: 3.9s
+Fall timer: 4.2s
+Fall timer: 4.5s
+Fall timer: 4.8s
+Gas Value: 39 | Gas Detected: False
+Fall timer: 5.1s
+Fall timer: 5.4s
+Fall timer: 5.7s
+Gas Value: 39 | Gas Detected: False
+Fall timer: 6.0s
+Fall timer: 6.3s
+Fall timer: 6.6s
+Fall timer: 6.9s
+Gas Value: 39 | Gas Detected: False
+Fall timer: 7.2s
+Fall timer: 7.5s
+Fall timer: 7.8s
+Gas Value: 39 | Gas Detected: False
+Fall timer: 8.1s
+Fall detected. Starting timer...
+Fall timer: 0.0s
+Gas Value: 40 | Gas Detected: False
+Fall timer: 0.3s
+Fall timer: 0.6s
+Fall timer: 0.9s
+Gas Value: 39 | Gas Detected: False
+Fall timer: 1.2s
+Fall timer: 1.5s
+Fall timer: 1.8s
+Fall timer: 2.1s
+Gas Value: 39 | Gas Detected: False
+Fall timer: 2.4s
+Fall timer: 2.7s
+Fall timer: 3.0s
+Gas Value: 39 | Gas Detected: False
+Fall timer: 3.3s
+Fall timer: 3.6s
+Fall timer: 3.9s
+Fall timer: 4.2s
+Gas Value: 40 | Gas Detected: False
+Fall timer: 4.5s
+Fall timer: 4.8s
+Fall timer: 5.1s
+Gas Value: 40 | Gas Detected: False
+Fall timer: 5.4s
+Fall timer: 5.7s
+Gas Value: 40 | Gas Detected: False
+Fall detected. Starting timer...
+Fall timer: 0.0s
+Fall timer: 0.3s
+Gas Value: 36 | Gas Detected: False
+Fall timer: 0.6s
+Fall timer: 0.9s
+Fall timer: 1.2s
+Gas Value: 40 | Gas Detected: False
+Gas Value: 38 | Gas Detected: False
+Fall detected. Starting timer...
+Fall timer: 0.0s
+Fall timer: 0.3s
+Fall detected. Starting timer...
+Fall timer: 0.0s
+Gas Value: 40 | Gas Detected: False
+Fall timer: 0.3s
+Fall timer: 0.6s
+Fall timer: 0.9s
+Gas Value: 37 | Gas Detected: False
+Fall timer: 1.2s
+Fall timer: 1.5s
+Fall timer: 1.8s
+Fall timer: 2.1s
+Gas Value: 38 | Gas Detected: False
+Fall timer: 2.4s
+Fall timer: 2.7s
+Fall timer: 3.0s
+Gas Value: 40 | Gas Detected: False
+Fall timer: 3.3s
+Fall timer: 3.6s
+Fall timer: 3.9s
+Fall timer: 4.2s
+Gas Value: 39 | Gas Detected: False
+Fall timer: 4.5s
+Fall timer: 4.8s
+Fall timer: 5.1s
+Gas Value: 40 | Gas Detected: False
+Fall timer: 5.4s
+Fall timer: 5.7s
+Fall timer: 6.0s
+Fall timer: 6.3s
+Gas Value: 40 | Gas Detected: False
+Fall timer: 6.6s
+Fall timer: 6.9s
+Fall timer: 7.2s
+Gas Value: 39 | Gas Detected: False
+Fall timer: 7.5s
+Fall timer: 7.8s
+Fall timer: 8.1s
+Fall timer: 8.4s
+Gas Value: 39 | Gas Detected: False
+Fall timer: 8.7s
+Fall timer: 9.0s
+Fall timer: 9.3s
+Gas Value: 39 | Gas Detected: False
+Fall timer: 9.6s
+Fall timer: 9.9s
+Fall timer: 10.2s
+Logged: Fall | Image: detected_Fall_2026-05-11_23-09-20.jpg
+Fall timer: 10.5s
+Gas Value: 39 | Gas Detected: False
+Fall timer: 10.8s
+Fall timer: 11.1s
+Fall timer: 11.4s
+Gas Value: 40 | Gas Detected: False
+Fall timer: 11.7s
+Fall timer: 12.0s
+Fall timer: 12.3s
+Gas Value: 38 | Gas Detected: False
+Fall timer: 12.6s
+Fall timer: 12.9s
+Fall timer: 13.2s
+Fall timer: 13.5s
+Gas Value: 37 | Gas Detected: False
+Fall timer: 13.8s
+Gas Value: 39 | Gas Detected: False
+Fall detected. Starting timer...
+Fall timer: 0.0s
+Fall detected. Starting timer...
+Fall timer: 0.0s
+Fall timer: 0.3s
+Gas Value: 40 | Gas Detected: False
+Fall timer: 0.6s
+Fall timer: 0.9s
+Gas Value: 39 | Gas Detected: False
+Logged: Gun | Image: detected_Gun_2026-05-11_23-09-27.jpg
+Gas Value: 40 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 36 | Gas Detected: False
+Gas Value: 40 | Gas Detected: False
+Gas Value: 41 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 38 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 37 | Gas Detected: False
+Logged: Gun | Image: detected_Gun_2026-05-11_23-09-37.jpg
+Gas Value: 39 | Gas Detected: False
+Gas Value: 41 | Gas Detected: False
+Gas Value: 37 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 42 | Gas Detected: False
+Gas Value: 38 | Gas Detected: False
+Gas Value: 41 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 40 | Gas Detected: False
+Gas Value: 38 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 40 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Logged: Knife | Image: detected_Knife_2026-05-11_23-09-54.jpg
+Gas Value: 39 | Gas Detected: False
+Gas Value: 40 | Gas Detected: False
+Gas Value: 40 | Gas Detected: False
+Gas Value: 40 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 40 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 38 | Gas Detected: False
+Gas Value: 40 | Gas Detected: False
+Gas Value: 40 | Gas Detected: False
+Gas Value: 41 | Gas Detected: False
+Logged: Knife | Image: detected_Knife_2026-05-11_23-10-05.jpg
+Gas Value: 37 | Gas Detected: False2026-05-11 23:10:15 - Detected: Knife - Image: detected_Knife_2026-05-11_23-10-15.jpg
+192.168.8.191 - - [11/May/2026 23:12:35] "GET / HTTP/1.1" 200 -
+
+Gas Value: 39 | Gas Detected: False
+Gas Value: 40 | Gas Detected: False
+Gas Value: 41 | Gas Detected: False
+Gas Value: 38 | Gas Detected: False
+Gas Value: 40 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Logged: Knife | Image: detected_Knife_2026-05-11_23-10-15.jpg
+Gas Value: 39 | Gas Detected: False
+Gas Value: 41 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 40 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 38 | Gas Detected: False
+Gas Value: 40 | Gas Detected: False
+Gas Value: 38 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 40 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 41 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 40 | Gas Detected: False
+Gas Value: 40 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 37 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 38 | Gas Detected: False
+Gas Value: 40 | Gas Detected: False
+Gas Value: 38 | Gas Detected: False
+Gas Value: 38 | Gas Detected: False
+Gas Value: 40 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 38 | Gas Detected: False
+Gas Value: 38 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 38 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 40 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 40 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 40 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 40 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 40 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 40 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 40 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 42 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 40 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 40 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 40 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+Gas Value: 39 | Gas Detected: False
+ * Serving Flask app 'app2'
+ * Debug mode: off
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.8.190:5000
+[33mPress CTRL+C to quit[0m
+192.168.8.191 - - [11/May/2026 23:27:42] "GET / HTTP/1.1" 200 -
+2026-05-11 23:28:18 - Detected: Gun - Image: detected_Gun_2026-05-11_23-28-18.jpg
+192.168.8.191 - - [11/May/2026 23:29:44] "GET / HTTP/1.1" 200 -
+2026-05-11 23:29:45 - Detected: Knife - Image: detected_Knife_2026-05-11_23-29-45.jpg
+2026-05-11 23:29:57 - Detected: Knife - Image: detected_Knife_2026-05-11_23-29-57.jpg
+2026-05-11 23:30:09 - Detected: Knife - Image: detected_Knife_2026-05-11_23-30-09.jpg
+2026-05-11 23:30:12 - Detected: Gun - Image: detected_Gun_2026-05-11_23-30-12.jpg
+2026-05-11 23:30:22 - Detected: Gun - Image: detected_Gun_2026-05-11_23-30-22.jpg
+2026-05-11 23:30:28 - Detected: Knife - Image: detected_Knife_2026-05-11_23-30-28.jpg
+192.168.8.191 - - [11/May/2026 23:30:57] "GET / HTTP/1.1" 200 -
+Arduino connected
+Gas Value: 57 | Gas Detected: False
+Gas Value: 57 | Gas Detected: False
+Gas Value: 56 | Gas Detected: False
+Gas Value: 56 | Gas Detected: False
+Gas Value: 57 | Gas Detected: False
+Gas Value: 57 | Gas Detected: False
+Gas Value: 56 | Gas Detected: False
+Gas Value: 56 | Gas Detected: False
+Gas Value: 56 | Gas Detected: False
+Gas Value: 57 | Gas Detected: False
+Gas Value: 56 | Gas Detected: False
+Gas Value: 57 | Gas Detected: False
+Gas Value: 56 | Gas Detected: False
+Gas Value: 56 | Gas Detected: False
+Gas Value: 56 | Gas Detected: False
+Gas Value: 57 | Gas Detected: False
+Gas Value: 54 | Gas Detected: False
+Gas Value: 56 | Gas Detected: False
+Gas Value: 57 | Gas Detected: False
+Gas Value: 56 | Gas Detected: False
+Gas Value: 56 | Gas Detected: False
+Gas Value: 56 | Gas Detected: False
+Gas Value: 55 | Gas Detected: False
+Gas Value: 56 | Gas Detected: False
+Gas Value: 56 | Gas Detected: False
+Gas Value: 56 | Gas Detected: False
+Gas Value: 56 | Gas Detected: False
+Gas Value: 57 | Gas Detected: False
+Gas Value: 57 | Gas Detected: False
+Gas Value: 52 | Gas Detected: False
+Gas Value: 56 | Gas Detected: False
+Gas Value: 56 | Gas Detected: False
+Gas Value: 56 | Gas Detected: False
+Gas Value: 56 | Gas Detected: False
+Gas Value: 56 | Gas Detected: False
+Gas Value: 56 | Gas Detected: False
+Gas Value: 56 | Gas Detected: False
+Gas Value: 54 | Gas Detected: False
+Gas Value: 57 | Gas Detected: False
+Gas Value: 56 | Gas Detected: False
+Gas Value: 55 | Gas Detected: False
+Gas Value: 56 | Gas Detected: False
+Gas Value: 56 | Gas Detected: False
+Logged: Gun | Image: detected_Gun_2026-05-11_23-28-18.jpg
+Gas Value: 54 | Gas Detected: False
+Gas Value: 56 | Gas Detected: False
+Gas Value: 56 | Gas Detected: False
+Gas Value: 57 | Gas Detected: False
+Fall detected. Starting timer...
+Fall timer: 0.0s
+Gas Value: 56 | Gas Detected: False
+Gas Value: 56 | Gas Detected: False
+Gas Value: 55 | Gas Detected: False
+Gas Value: 57 | Gas Detected: False
+Gas Value: 55 | Gas Detected: False
+Gas Value: 56 | Gas Detected: False
+Gas Value: 57 | Gas Detected: False
+Gas Value: 56 | Gas Detected: False
+Gas Value: 56 | Gas Detected: False
+Gas Value: 55 | Gas Detected: False
+Gas Value: 57 | Gas Detected: False
+Gas Value: 56 | Gas Detected: False
+Gas Value: 56 | Gas Detected: False
+Gas Value: 56 | Gas Detected: False
+Gas Value: 55 | Gas Detected: False
+Gas Value: 55 | Gas Detected: False
+Gas Value: 56 | Gas Detected: False
+Gas Value: 56 | Gas Detected: False
+Gas Value: 55 | Gas Detected: False
+Gas Value: 56 | Gas Detected: False
+Gas Value: 56 | Gas Detected: False
+Gas Value: 56 | Gas Detected: False
+Gas Value: 56 | Gas Detected: False
+Gas Value: 55 | Gas Detected: False
+Gas Value: 57 | Gas Detected: False
+Gas Value: 56 | Gas Detected: False
+Gas Value: 54 | Gas Detected: False
+Gas Value: 56 | Gas Detected: False
+Gas Value: 56 | Gas Detected: False
+Gas Value: 57 | Gas Detected: False
+Gas Value: 56 | Gas Detected: False
+Gas Value: 55 | Gas Detected: False
+Gas Value: 55 | Gas Detected: False
+Gas Value: 56 | Gas Detected: False
+Gas Value: 56 | Gas Detected: False
+Gas Value: 57 | Gas Detected: False
+Gas Value: 55 | Gas Detected: False
+Gas Value: 54 | Gas Detected: False
+Gas Value: 56 | Gas Detected: False
+Gas Value: 56 | Gas Detected: False
+Gas Value: 56 | Gas Detected: False
+Gas Value: 56 | Gas Detected: False
+Gas Value: 56 | Gas Detected: False
+Gas Value: 56 | Gas Detected: False
+Gas Value: 56 | Gas Detected: False
+Gas Value: 56 | Gas Detected: False
+Gas Value: 56 | Gas Detected: False
+Gas Value: 56 | Gas Detected: False
+Gas Value: 56 | Gas Detected: False
+Gas Value: 56 | Gas Detected: False
+Gas Value: 56 | Gas Detected: False
+Gas Value: 56 | Gas Detected: False
+Gas Value: 56 | Gas Detected: False
+Gas Value: 56 | Gas Detected: False
+Gas Value: 56 | Gas Detected: False
+Gas Value: 56 | Gas Detected: False
+Gas Value: 56 | Gas Detected: False
+Gas Value: 56 | Gas Detected: False
+Gas Value: 56 | Gas Detected: False
+Gas Value: 56 | Gas Detected: False
+Gas Value: 56 | Gas Detected: False
+Gas Value: 56 | Gas Detected: False
+Gas Value: 55 | Gas Detected: False
+Gas Value: 55 | Gas Detected: False
+Gas Value: 56 | Gas Detected: False
+Gas Value: 56 | Gas Detected: False
+Gas Value: 56 | Gas Detected: False
+Gas Value: 56 | Gas Detected: False
+Gas Value: 56 | Gas Detected: False
+Gas Value: 56 | Gas Detected: False
+Gas Value: 56 | Gas Detected: False
+Gas Value: 56 | Gas Detected: False
+Gas Value: 56 | Gas Detected: False
+Gas Value: 56 | Gas Detected: False
+Gas Value: 56 | Gas Detected: False
+Gas Value: 56 | Gas Detected: False
+Gas Value: 56 | Gas Detected: False
+Gas Value: 56 | Gas Detected: False
+Gas Value: 55 | Gas Detected: False
+Logged: Knife | Image: detected_Knife_2026-05-11_23-29-45.jpg
+Gas Value: 56 | Gas Detected: False
+Gas Value: 55 | Gas Detected: False
+Gas Value: 55 | Gas Detected: False
+Gas Value: 56 | Gas Detected: False
+Gas Value: 56 | Gas Detected: False
+Gas Value: 55 | Gas Detected: False
+Gas Value: 56 | Gas Detected: False
+Gas Value: 55 | Gas Detected: False
+Gas Value: 56 | Gas Detected: False
+Gas Value: 55 | Gas Detected: False
+Gas Value: 56 | Gas Detected: False
+Logged: Knife | Image: detected_Knife_2026-05-11_23-29-57.jpg
+Gas Value: 57 | Gas Detected: False
+Gas Value: 56 | Gas Detected: False
+Gas Value: 54 | Gas Detected: False
+Gas Value: 56 | Gas Detected: False
+Gas Value: 55 | Gas Detected: False
+Gas Value: 56 | Gas Detected: False
+Gas Value: 56 | Gas Detected: False
+Gas Value: 54 | Gas Detected: False
+Gas Value: 57 | Gas Detected: False
+Gas Value: 55 | Gas Detected: False
+Gas Value: 56 | Gas Detected: False
+Gas Value: 55 | Gas Detected: False
+Logged: Knife | Image: detected_Knife_2026-05-11_23-30-09.jpg
+Gas Value: 54 | Gas Detected: False
+Gas Value: 55 | Gas Detected: False
+Gas Value: 56 | Gas Detected: False
+Logged: Gun | Image: detected_Gun_2026-05-11_23-30-12.jpg
+Gas Value: 56 | Gas Detected: False
+Gas Value: 53 | Gas Detected: False
+Gas Value: 55 | Gas Detected: False
+Gas Value: 56 | Gas Detected: False
+Gas Value: 56 | Gas Detected: False
+Gas Value: 55 | Gas Detected: False
+Gas Value: 55 | Gas Detected: False
+Gas Value: 55 | Gas Detected: False
+Gas Value: 56 | Gas Detected: False
+Gas Value: 55 | Gas Detected: False
+Logged: Gun | Image: detected_Gun_2026-05-11_23-30-22.jpg
+Gas Value: 55 | Gas Detected: False
+Gas Value: 55 | Gas Detected: False
+Gas Value: 55 | Gas Detected: False
+Gas Value: 56 | Gas Detected: False
+Gas Value: 55 | Gas Detected: False
+Gas Value: 56 | Gas Detected: False
+Logged: Knife | Image: detected_Knife_2026-05-11_23-30-28.jpg
+Gas Value: 56 | Gas Detected: False
+Gas Value: 55 | Gas Detected: False
+Gas Value: 55 | Gas Detected: False
+Gas Value: 54 | Gas Detected: False
+Gas Value: 56 | Gas Detected: False
+Gas Value: 56 | Gas Detected: False
+Gas Value: 56 | Gas Detected: False
+Gas Value: 55 | Gas Detected: False
+Gas Value: 55 | Gas Detected: False
+Gas Value: 56 | Gas Detected: False
+Gas Value: 56 | Gas Detected: False
+Gas Value: 56 | Gas Detected: False
+Gas Value: 56 | Gas Detected: False
+Gas Value: 55 | Gas Detected: False
+Gas Value: 56 | Gas Detected: False
+Gas Value: 55 | Gas Detected: False
+Gas Value: 56 | Gas Detected: False
+Gas Value: 56 | Gas Detected: False
+Gas Value: 55 | Gas Detected: False
+Gas Value: 55 | Gas Detected: False
+Gas Value: 56 | Gas Detected: False
+Gas Value: 55 | Gas Detected: False
+Gas Value: 56 | Gas Detected: False
+Gas Value: 56 | Gas Detected: False
+Gas Value: 55 | Gas Detected: False
+Gas Value: 56 | Gas Detected: False
+Gas Value: 56 | Gas Detected: False
+Gas Value: 55 | Gas Detected: False
+Gas Value: 55 | Gas Detected: False
+Gas Value: 55 | Gas Detected: False
+Gas Value: 55 | Gas Detected: False
+Gas Value: 55 | Gas Detected: False
+Gas Value: 55 | Gas Detected: False
+Gas Value: 57 | Gas Detected: False
+Gas Value: 55 | Gas Detected: False
+Gas Value: 56 | Gas Detected: False
+Gas Value: 55 | Gas Detected: False
+Gas Value: 54 | Gas Detected: False
+Gas Value: 55 | Gas Detected: False
+Gas Value: 53 | Gas Detected: False
+Gas Value: 55 | Gas Detected: False
+Gas Value: 57 | Gas Detected: False
+Gas Value: 55 | Gas Detected: False
+Gas Value: 54 | Gas Detected: False
+Gas Value: 55 | Gas Detected: False
+Gas Value: 56 | Gas Detected: False192.168.8.191 - - [11/May/2026 23:32:35] "GET / HTTP/1.1" 200 -
+2026-05-11 23:32:52 - Detected: Knife - Image: detected_Knife_2026-05-11_23-32-52.jpg
+2026-05-11 23:32:59 - Detected: Gun - Image: detected_Gun_2026-05-11_23-32-59.jpg
+2026-05-11 23:33:27 - Detected: Gun - Image: detected_Gun_2026-05-11_23-33-27.jpg
+192.168.8.191 - - [11/May/2026 23:34:11] "GET / HTTP/1.1" 200 -
+2026-05-11 23:34:21 - Detected: Gun - Image: detected_Gun_2026-05-11_23-34-21.jpg
+2026-05-11 23:34:23 - Detected: Knife - Image: detected_Knife_2026-05-11_23-34-23.jpg
+192.168.8.191 - - [11/May/2026 23:34:52] "GET / HTTP/1.1" 200 -

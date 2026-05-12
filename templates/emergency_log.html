@@ -33,9 +33,15 @@
                 <td>{{ log.timestamp.strftime('%Y-%m-%d') }}</td>
                 <td>{{ log.timestamp.strftime('%H:%M') }}</td>
                 <td>
-                    <a href="{{ url_for('live_stream') }}" class="view-details">
-                        View Live Feed
+                    {% if log.image_file %}
+                        <a href="{{ url_for('static', filename='emergency_pics/' + log.image_file) }}" target="_blank" class="ref-btn">
+                            View Snapshot
                     </a>
+                    {% else %}
+                        <span style="color: #999; font-style: italic;">
+                            No Image
+                        </span>
+                    {% endif %}
                 </td>
             </tr>
             {% endfor %}
@@ -49,7 +55,6 @@
 </div>
 
 <style>
-    /* Table Styling */
     .modern-table {
         width: 100%;
         border-collapse: collapse;
@@ -71,7 +76,6 @@
         border-bottom: 1px solid #eee;
     }
 
-    /* Type Badges */
     .type-badge {
         padding: 5px 12px;
         border-radius: 20px;
@@ -81,14 +85,12 @@
         color: white;
     }
 
-    /* Specific Colors for each Class */
-    .badge-fire { background-color: #e74c3c; }   /* Red */
-    .badge-gun { background-color: #2c3e50; }    /* Dark Blue/Black */
-    .badge-knife { background-color: #95a5a6; }  /* Silver/Grey */
-    .badge-fall { background-color: #9b59b6; }   /* Purple */
-    .badge-smoke { background-color: #7f8c8d; }  /* Smoke Grey */
+    .badge-fire { background-color: #e74c3c; }   
+    .badge-gun { background-color: #2c3e50; }    
+    .badge-knife { background-color: #95a5a6; }
+    .badge-fall { background-color: #9b59b6; }   
+    .badge-smoke { background-color: #7f8c8d; }  
 
-    /* Incident Reference Button */
     .view-details {
         text-decoration: none;
         background-color: #3498db;

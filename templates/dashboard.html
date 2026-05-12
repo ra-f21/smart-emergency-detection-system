@@ -15,7 +15,7 @@
         </a>
     </div>
 
-    <div class="card profile-card">
+    <div class="profile-card">
         <div class="info-group">
             <label>Full Name</label>
             <p>{{ user.full_name }}</p>
@@ -31,7 +31,7 @@
             <p>{{ user.age }} years old</p>
         </div>
 
-        <div class="profile-cardx">
+        <div class="info-group">
             <h3>Emergency Contact</h3>
             <p> {{ user.emergency_contact }}</p>
         </div>
@@ -43,7 +43,7 @@
 
         <div class="info-group">
             <label>Number of Residents</label>
-            <p>{{ user.number_of_residents }}</p>
+            <p>{{ user.number_of_residents if user.number_of_residents > 0 else 1 }}</p>
         </div>
 
         <div class="info-group">

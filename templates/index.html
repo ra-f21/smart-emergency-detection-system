@@ -26,7 +26,7 @@
         </div>
         <div class="stat-info">
             <h3>Emergencies</h3>
-            <p class="stat-value">{{ total_emergencis }}</p>
+            <p class="stat-value">{{ total_emergencies }}</p>
         </div>
     </div>
 
@@ -59,51 +59,51 @@
 <div class="content-section">
     <div class="section-header">
         <h2>Control Center</h2>
-        <p>Navigate to primary system functions</p>
+        <p>Navigate to System functions</p>
     </div>
     
     <div class="action-grid">
         <a href="{{ url_for('live_stream') }}" class="action-card">
             <div class="action-icon"></div>
             <h4>Live Feed</h4>
-            <span>Monitor surveillance in real-time</span>
+            <span>Real-Time Video Recording</span>
         </a>
         <a href="{{ url_for('emergency_log') }}" class="action-card">
             <div class="action-icon"></div>
             <h4>Incident Logs</h4>
-            <span>Review past detection events</span>
+            <span>Review emergency logs</span>
         </a>
         <a href="{{ url_for('dashboard') }}" class="action-card">
             <div class="action-icon"></div>
             <h4>User Profile</h4>
-            <span>Manage medical and contact data</span>
+            <span>Check your profile </span>
         </a>
     </div>
 </div>
 
 <div class="content-section alternate-bg">
     <div class="section-header">
-        <h2>System Intelligence</h2>
+        <h2>System Features</h2>
         <p>Recent model updates and feature deployments</p>
     </div>
 
     <div class="panels-container">
         <div class="panel-modern">
             <div class="panel-tag">NEW MODEL</div>
-            <p><strong>Fire Detection v2.4</strong></p>
-            <p>Improved MQ-2 sensor sensitivity calibration for rapid smoke detection.</p>
+            <p><strong>Over 30k data trained!</strong></p>
+            <p>Improved gun and knife detection.</p>
         </div>
 
         <div class="panel-modern">
-            <div class="panel-tag">FEATURE</div>
-            <p><strong>Low-Latency Stream</strong></p>
-            <p>H.264 video encoding optimized for Raspberry Pi 4 hardware.</p>
+            <div class="panel-tag">FIRE & SMOKE DETECTION</div>
+            <p><strong>Decreases false detections!</strong></p>
+            <p>Feature deployment where a notification is triggered if and only if fire and smoke are detected together.</p>
         </div>
 
         <div class="panel-modern">
             <div class="panel-tag">AI UPDATE</div>
-            <p><strong>Fall Detection</strong></p>
-            <p>Enhanced Pose Estimation model to reduce false positives in low light.</p>
+            <p><strong>Fall Detection!</strong></p>
+            <p>User must not move for specific time in order to detect fall.</p>
         </div>
     </div>
 </div>
@@ -111,7 +111,7 @@
 <div id="about" class="about-modern">
     <div class="about-content">
         <h2>About the Project</h2>
-        <p>Developed as a graduation project, this <strong>Smart Emergency Detection System</strong> integrates IoT hardware with Edge Machine Learning. By processing data directly on the Raspberry Pi, we ensure privacy and near-instant response times for fire, health, and security emergencies.</p>
+        <p>This <strong>Smart Emergency Detection System</strong> was developed as graduation project which integrates IoT hardware with Edge Machine Learning.</p>
     </div>
 </div>
 

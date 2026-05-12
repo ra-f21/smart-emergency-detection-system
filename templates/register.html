@@ -52,7 +52,7 @@
 </div>
   <input type="text" name="diseases_other" id="diseases-other" class="diseases_other" placeholder="Please specify" style="display:none;" >
   <label>Number of Residents</label>
-  <input class= "number_of_residents" name="number_of_residents" type="number" placeholder="Number of Residents" required><br><br>
+  <input class= "number_of_residents" name="number_of_residents" type="number" min="0" oninput="this.value = Math.abs(this.value)" placeholder="Number of Residents" required><br><br>
   <label>Location</label>
   <input class="location" name="location" placeholder="Location" required><br><br>
 
@@ -64,7 +64,6 @@
     const otherTextCheck = document.getElementById("OtherCheckbox");
     const otherInput = document.getElementById("diseases-other");
 
-    // If "None" is checked, uncheck everything else
     noneCheck.addEventListener("change", function() {
         if (this.checked) {
             otherDiseaseChecks.forEach(cb => cb.checked = false);
@@ -74,14 +73,12 @@
         }
     });
 
-    // If any disease is checked, uncheck "None"
     otherDiseaseChecks.forEach(cb => {
         cb.addEventListener("change", function() {
             if (this.checked) {
                 noneCheck.checked = false;
             }
             
-            // Handle "Other" input visibility
             if (this.id === "OtherCheckbox") {
                 if (this.checked) {
                     otherInput.classList.remove("hide");
