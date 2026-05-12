@@ -15,6 +15,10 @@ Tech سلام is an integrated security and safety solution that uses Computer V
    - System Calibration
  
 - **Noura AlDrees** -
+  - Dataset Collection and Preparation
+  - Model Training
+  - Hardware Integration
+  - System Testing
 
 - **Rahaf Alquwaider** -
   - Backend Development
