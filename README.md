@@ -17,13 +17,13 @@ Tech سلام is an integrated security and safety solution that uses Computer V
    - AI Model Training
    - Dataset Labeling
  
-- **Noura AlDrees** 
+- **Noura AlDrees** - System Engineer
   - Dataset Collection and Preparation
   - AI Model Training
   - Hardware Integration
   - System Testing
 
-- **Rahaf Alquwaider** 
+- **Rahaf Alquwaider** - System Engineer
   - Backend Development
   - Database Management
   - Dataset Collection and Preparation
