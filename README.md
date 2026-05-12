@@ -7,16 +7,19 @@ Tech سلام is an integrated security and safety solution that uses Computer V
    - Frontend development
    - Full Stack Backend Development
    - Hardware-To-Web Connection
+   - AI Model Training
    - System Calibration
 
 - **Njood AlKhamis** - System Engineer
    - Hardware Integration
    - Hardware-To-Web Connection
    - System Calibration
+   - AI Model Training
+   - Dataset Labeling
  
 - **Noura AlDrees** -
   - Dataset Collection and Preparation
-  - Model Training
+  - AI Model Training
   - Hardware Integration
   - System Testing
 
@@ -24,6 +27,7 @@ Tech سلام is an integrated security and safety solution that uses Computer V
   - Backend Development
   - Database Management
   - Dataset Collection and Preparation
+  - Hardware Integration
   - System Testing
     
 # 2. Project Overview
