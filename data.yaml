@@ -1,0 +1,17 @@
+names:
+- Fall
+- Gun
+- Knife
+- Sit
+- fire
+- smoke
+nc: 6
+roboflow:
+  license: CC BY 4.0
+  project: graduation-project-npgdj
+  url: https://app.roboflow.com/graduation-project-aobfd/graduation-project-npgdj/11
+  version: 11
+  workspace: graduation-project-aobfd
+test: ../test/images
+train: ../train/images
+val: ../valid/images
