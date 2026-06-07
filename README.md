@@ -16,18 +16,16 @@ Tech سلام is an integrated security and safety solution that uses Computer V
    - System Calibration
    - AI Model Training
    - Dataset Labeling
+   - System testing
  
 - **Noura AlDrees** - System Engineer
   - Dataset Collection and Preparation
   - AI Model Training
-  - Hardware Integration
-  - System Testing
+  - Arduino Uno Integration
 
 - **Rahaf Alquwaider** - System Engineer
   - Backend Development
-  - Database Management
-  - Dataset Collection and Preparation
-  - Hardware Integration
+  - Arduino Uno Integration
   - System Testing
     
 # 2. Project Overview
