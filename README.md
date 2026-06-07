@@ -17,6 +17,8 @@ Tech سلام is an integrated security and safety solution that uses Computer V
    - AI Model Training
    - Dataset Labeling
    - System testing
+   - Dataset Collection and Preparation
+
  
 - **Noura AlDrees** - System Engineer
   - Dataset Collection and Preparation
