@@ -48,7 +48,7 @@ B. Smart Emergency Logging
 - User-Specific Logs: Emergencies are linked to the specific user's account for personalized security history.
 
 C. Hardware & Sensor Alerts
-- MQ-2 Gas/Smoke Sensor: Detects smoke levels at a 40-threshold limit.
+- MQ-2 Gas/Smoke Sensor: Detects smoke levels at a 100-threshold limit.
 - Physical Alarm: Arduino-controlled 5V buzzer and LCD screen for local on-site alerts.
 - Headless Pi Management: Remote system control via SSH.
 
@@ -131,3 +131,8 @@ Google Colab (H100 GPU)
 Epochs:
 50
    
+# 8. License
+
+This project was developed as part of the Graduation Project requirements at **Imam Muhammad Bin Saud Islamic University**.
+
+Copyright © 2026 Tech سلام Team.
