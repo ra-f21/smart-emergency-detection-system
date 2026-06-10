@@ -87,3 +87,26 @@ py app.py
 
 # The application will be accessible at:
 http://localhost:5000 or http://[YOUR_PI_IP]:5000
+
+# 6. System Architecture
+
+The system consists of the following components:
+
+1. USB Camera
+   → Captures live video frames
+
+2. YOLOv8 Detection Module
+   → Detects Fire, Smoke, Fall, Sit, Gun, and Knife 
+
+3. MQ-2 Sensor + Arduino Uno
+   → Detects gas/smoke levels
+
+4. Raspberry Pi
+   → Runs Flask backend and AI model
+
+5. SQLite Database
+   → Stores users and emergency logs
+
+6. Web Dashboard
+   → Displays livestream and emergency logs
+   
