@@ -109,4 +109,25 @@ The system consists of the following components:
 
 6. Web Dashboard
    → Displays livestream and emergency logs
+
+# 7. AI Model
+
+Model: YOLOv8n
+
+Classes:
+- Fire
+- Smoke
+- Fall
+- Sit
+- Gun
+- Knife
+
+Training Images:
+76,216
+
+Training Platform:
+Google Colab (H100 GPU)
+
+Epochs:
+50
    
